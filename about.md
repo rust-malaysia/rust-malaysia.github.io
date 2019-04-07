@@ -18,6 +18,7 @@ Related resources with Rust community in Malaysia.
 
 Rustaceans currently known in Malaysia. Feel free to add yourselves.
 
-- Choon Siang Lai @ Jeffrey04
-- Ivan Tham Jun Hoe @ pickfire
-- Shulhi Sapli @ shulhi
+- Choon Siang Lai @ [Jeffrey04](https://github.com/Jeffrey04)
+- Ivan Tham Jun Hoe @ [pickfire](https://github.com/pickfire)
+- Shulhi Sapli @ [shulhi](https://github.com/shulhi)
+- Gan Jun Kai @ [jk-gan](https://github.com/jk-gan)
