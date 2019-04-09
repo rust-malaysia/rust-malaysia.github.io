@@ -22,3 +22,4 @@ Rustaceans currently known in Malaysia. Feel free to add yourselves.
 - Ivan Tham Jun Hoe @ [pickfire](https://github.com/pickfire)
 - Shulhi Sapli @ [shulhi](https://github.com/shulhi)
 - Gan Jun Kai @ [jk-gan](https://github.com/jk-gan)
+- Wai Pai Lee @ [plwai](https://github.com/plwai)
