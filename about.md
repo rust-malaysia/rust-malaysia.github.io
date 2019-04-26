@@ -4,6 +4,9 @@ title: About
 permalink: /about/
 ---
 
+Latest Rust Meetup Kuala Lumpur Wednesday (2019-05-08).
+[Google Forms](https://docs.google.com/forms/d/e/1FAIpQLScUHpCLPMF8I1QxA_WnIz9bipalrNsUckSyLMysGGNB5y0Lyw/viewform)
+
 Related resources with Rust community in Malaysia.
 
 - [Devkami events][devkami]
