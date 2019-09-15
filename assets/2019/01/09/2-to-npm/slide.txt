@@ -1,0 +1,78 @@
+# 2019-09-11 rust meetup malaysia
+# used with git.suckless.org/sent
+
+Rust to NPM
+
+Why Rust? (portable nodejs dev standpoint)
+- zero cost abstractions
+- no garbage collector
+- safe (ReferenceError: x is not defined)
+
+1. The WASM Way
+
+Web Assembly
+- binary
+- compact
+
+wasm-bindgen, js-sys, web-sys
+
+IIRC (warning: hand-typed)
+
+\#[wasm_bindgen]
+extern crate {
+    fn alert(msg: &str);
+}
+\
+\#[wasm_bindgen]
+fn hello(msg: &str) {
+    alert(format!("hello {}", msg));
+}
+
+Tradition (the manual way)
+
+$ rustup target add wasm32-unknown-unknown
+$ cargo build --target=wasm32-unknown-unknown
+$ ...
+\# add a bunch of client boiler plate
+\# use build target/wasm32-unknown-unknown
+
+wasm-pack
+
+- a helper to 'pack and publish your wasm!'
+- browser or nodejs target but not much
+- less enum power for error handling fallback
+- simple api through `proc_macro`
+- no full std support, eg. `format!` needed for wasm
+
+$ wasm-pack build --target=nodejs --release
+$ wasm-pack publish
+
+2. Node.js bindings
+
+neon
+
+IIRC (warning: hand-typed)
+
+\#[macro_use]
+extern crate neon;
+extern crate mycrate;
+\
+use neon::prelude::*;
+\
+fn hello(mut cx: FunctionContext) -> JsResult<JsString> {
+    Ok(cx.string(format!("hello {}", cx.argument::<JsString>(0)?.value())))
+}
+\
+register_module!(mut cx, {
+    cx.export_function("hello", hello)
+});
+
+- expose some garbage collector stuff
+- complicated and need to tweak code
+- no wasm but dynamic lib (faster?)
+- still need to write minimal js glue
+
+$ neon build
+\# neon does not have publish
+
+Summary?

@@ -1,0 +1,155 @@
+# 2018-05-08 rust meetup malaysia
+# used with git.suckless.org/sent
+
+Parsers
+=======
+
+Parsing? ¯\_(ツ)_/¯
+
+- Binary parser (CBOR)
+- Text parser (JSON, CSV, YAML, TOML, XML)
+- Programming language parser (PHP)
+- Network protocol parser (PCAP, IRC)
+
+Manual Parsing (Hand Rolled)
+
+fn parse_csv(input: &[u8]) -> Vec<String> {
+    let tokens = Vec::new();
+    loop {
+        match input {
+            [b'h', b'i', b' ', ...others] => {
+                tokens.push('hi'.to_string());
+                // do something with others
+            }
+            [n @ b'0'..b'9', ...others] => {
+                tokens.push(n.to_string());
+            }
+            _ => Vec::new(),
+        }
+    }
+}
+
+- full control
+- can be very optimized
+- tedious / diverse (reinvent the wheel)
+- example, serde-json / simdjson (way faster)
+
+Parsing Expression Grammar (PEG)
+
+object = {
+    "{" ~ "}" |
+    "{" ~ pair ~ ("," ~ pair)* ~ "}"
+}
+pair = { string ~ ":" ~ value }
+\
+array = {
+    "[" ~ "]" |
+    "[" ~ value ~ ("," ~ value)* ~ "]"
+}
+\
+value = _{ object | array | string | number | boolean | null }
+\
+boolean = { "true" | "false" }
+\
+null = { "null" }
+\
+json = _{ SOI ~ (object | array) ~ EOI }
+
+extern crate pest;
+\#[macro_use]
+extern crate pest_derive;
+\
+use pest::Parser;
+\
+\#[derive(Parser)]
+\#[grammar = "json.pest"]
+struct JSONParser;
+
+fn parse_json_file(file: &str) -> Result<JSONValue, Error<Rule>> {
+    use pest::iterators::Pair;
+\
+    fn parse_value(pair: Pair<Rule>) -> JSONValue {
+        match pair.as_rule() {
+            Rule::object => JSONValue::Object(
+                pair.into_inner()
+                    .map(|pair| {
+                    ...
+            }
+            Rule::array => JSONValue::Array(pair.into_inner().map(parse_value).collect()),
+            ...
+        }
+    }
+}
+
+- expressive / beautiful (perspective)
+- slower than native-speed parser (nom)
+
+Parser Combinators
+
+Combinatorics?? Functors??
+
+> Combining functions
+
+Types
+\
+- Trait-based
+- Function-based (pom, upcoming nom 5, combine?)
+- Macros-based (nom 4)
+
+Macros-based (nom - eating data byte by byte)
+\
+- can developed into DSL
+- powerful and fast
+- steep learning curve
+- harder to debug
+
+named!(hex_color<&str, Color>,
+    do_parse!(
+               tag!("#")   >>
+        red:   hex_primary >>
+        green: hex_primary >>
+        blue:  hex_primary >>
+        (Color { red, green, blue })
+    )
+);
+
+Function-based (pom, upcoming nom 5)
+\
+- not out yet, no comments
+
+fn value<'a, E: ParseError<&'a str>>(i: &'a str) ->IResult<&'a str, JsonValue, E> {
+    preceded!(i,
+        sp,
+        alt!(
+            hash    => { |h| JsonValue::Object(h)            } |
+            array   => { |v| JsonValue::Array(v)             } |
+            string  => { |s| JsonValue::Str(String::from(s)) } |
+            float   => { |f| JsonValue::Num(f)               } |
+            boolean => { |b| JsonValue::Boolean(b)           }
+        ))
+}
+
+Example in combine
+\
+- easier to learn
+- lesser performance
+
+fn property<I>() -> impl Parser<Input = I, Output = (String, String)>
+where
+    I: Stream<Item = char>,
+    // Necessary due to rust-lang/rust#24159
+    I::Error: ParseError<I::Item, I::Range, I::Position>,
+{
+    (
+        many1(satisfy(|c| c != '=' && c != '[' && c != ';')),
+        token('='),
+        many1(satisfy(|c| c != '\n' && c != ';')),
+    )
+        .map(|(key, _, value)| (key, value))
+        .message("while parsing property")
+}
+
+References
+----------
+o https://bodil.lol/parser-combinators/
+o https://freemasen.github.io/parsers_presentation/
