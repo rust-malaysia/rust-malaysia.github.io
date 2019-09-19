@@ -17,7 +17,7 @@ Previous Meetups
 | 2019-09-11 | Recording [Rust Lang Meetup - September 2019](https://youtu.be/7w_1qU8uthw) |
 |            | Unit tests and benchmarks ([Slides](/assets/2019/09/11/1-tests/slide.txt)) ([Code](https://github.com/rust-malaysia/rust-malaysia.github.io/tree/master/assets/2019/09/11/1-tests/tests)) by Ivan Tham |
 | 2019-07-10 | Recording [Rust Lang Meetup - July 2019](https://youtu.be/suAoAiy-miA) |
-|            | WASM 101 (waiting for slides) by Asyrique |
+|            | WASM 101 by Asyrique |
 |            | Rust 101 by Jeffrey Lai |
 | 2019-05-08 | Recording [Rust Malaysia May 2019](https://youtu.be/g4bvGCteI5A) |
 |            | Parser stylish, combinators, and manually ([Slides](/assets/2019/05/08/2-parsers/slide.txt)) by Ivan Tham |
