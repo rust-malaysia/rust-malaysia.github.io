@@ -23,7 +23,7 @@ Previous Meetups
 |            | Parser stylish, combinators, and manually ([Slides](/assets/2019/05/08/2-parsers/slide.txt)) by Ivan Tham |
 |            | Web scraping along with Python by Jeffrey Lai and Ivan Tham ([Rust Code](/assets/2019/05/08/1-scraping/main.rs)) |
 | 2019-01-09 | Recording [Rust Lang Meetup - January 2019](https://youtu.be/yfQB2O5X6tQ) |
-|            | Closures in Rust (waiting for slides) by Shulhi |
+|            | Closures in Rust ([Slides](https://slides.com/shulhisapli/deck)) by Shulhi |
 |            | Rust to NPM ([Slides](/assets/2019/01/09/2-to-npm/slide.txt)) by Ivan Tham |
 | 2018-11-07 | Recording [Rust Lang Meetup - November 2018](https://youtu.be/h6zDaHayhec) |
 |            | 15 Exercism by Jeffrey Lai |
