@@ -4,10 +4,10 @@ title: Meetup
 permalink: /meetup/
 ---
 
+[Register for Kuala Lumpur Rust November Meetup](https://docs.google.com/forms/d/e/1FAIpQLSfZM9XYmBXq9tjqRziR-O3vBmm4rt1Ltnc9bGcleVrLmZHrSg/viewform)
 <!--
-[Register for Kuala Lumpur Rust September Meetup](https://docs.google.com/forms/d/e/1FAIpQLScsqK0kH3o6ti12AEc9Fn4To-W0rXo9Q-frLmZ3JZUWc8yjjw/viewform?usp=sf_link)
--->
 No registration open.
+-->
 
 Previous Meetups
 ----------------
