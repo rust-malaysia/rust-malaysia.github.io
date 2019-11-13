@@ -1,0 +1,134 @@
+# 2019-11-12 rust meetup malaysia
+# used with git.suckless.org/sent
+
+Contributing to Rust
+====================
+
+Learning
+--------
+
+My Journey
+
+2015 - first exposure
+     - tried and stopped
+2017 - retry and play
+2018 - rust 2018 edition wow
+2019 - today (minor contribution)
+
+Rust community is friendly!
+
+Or is it? Let's see
+
+Backed by
+o CoC
+o decentralized
+o people who like challenges
+
+Learning resources
+\
+- The Rust Programming Language Book
+- Rust by example
+- Core documentation (API, tools)
+- Application domain books
+- Master Rust
+  - Rust Reference
+  - The 'Nomicon
+  - Unstable Rust
+
+Internals
+---------
+
+Teams
+\
+- core team
+- community team
+- compiler team
+- crates.io team
+- dev tools team
+- documentation team
+- language team
+- library team
+- moderation team
+- operations team
+- rust team alumni
+
+Working Groups
+\
+- CLI working group
+- embedded devices working group
+- game development working group
+- networking working group
+- secure group working group
+- security response working group
+- WebAssembly working group
+
+https://www.rust-lang.org/governance
+
+RFC process
+
+Design changes
+
+Process (simplified)
+\
+1. pre-rfc
+2. review
+3. rfc
+4. pull request
+5. review
+6. final comment period (FCP)
+7. active rfc
+8. implementation
+9. stabilization
+
+Rust community
+--------------
+
+Blogs & News
+\
+Rust Blog
+Inside Rust Blog
+This Week in Rust
+readrust.net
+
+Discussions
+\
+- Users forum
+- Internals forum
+- Chat platforms
+  - discord
+  - some tulip
+  - RIP IRC T_T
+
+Rust community calendar
+
+Experience
+----------
+
+documentation / link rot
+\
+- easiest way to help
+- just send a pull requests
+
+helping out rfc
+\
+- adding some code snippets
+- https://github.com/rust-lang/rfcs/pull/2523
+
+Started with a comment
+Get a good response
+
+@rfc-comment.png
+
+@rfc-pull.png
+
+implementing rfc (WIP)
+\
+- rustc-guide & docs
+- https://github.com/rust-lang/rfcs/pull/2523
+- https://github.com/rust-lang/rust/issues/64797
+
+Interesting RFC
+Feel like implementing?
+Just ping and get mentoring instructions
+
+:wq

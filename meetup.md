@@ -14,7 +14,10 @@ Previous Meetups
 
 | Date | Info |
 |----|----|
-| 2019-09-11 | Recording [Rust Lang Meetup - September 2019](https://youtu.be/7w_1qU8uthw) |
+| 2019-11-13 | Recording Rust Lang Meetup - November 2019 (TBD) ([News](https://docs.google.com/presentation/d/16QJrLSBun9hS8GzjZPLYCNcOgRwr8N_RPn-Rs08lpRM/edit?usp=sharing)) |
+|            | Contributing to Rust by Ivan Tham ([Slides](/assets/2019/11/13/1-contrib)) |
+|            | Rust 101 Struct, Enum, Pattern Matching (Easy) by Ivan Tham ([Slides](/assets/2019/11/13/2-struct)) |
+| 2019-09-11 | Recording [Rust Lang Meetup - September 2019](https://youtu.be/7w_1qU8uthw) ([News](https://docs.google.com/presentation/d/1LcQSBXXZ1nAuv-ozYdv3M5jhKrtjGSgg0WNsObY-Z6Y/edit?usp=sharing)) |
 |            | Unit tests and benchmarks ([Slides](/assets/2019/09/11/1-tests/slide.txt)) ([Code](https://github.com/rust-malaysia/rust-malaysia.github.io/tree/master/assets/2019/09/11/1-tests/tests)) by Ivan Tham |
 | 2019-07-10 | Recording [Rust Lang Meetup - July 2019](https://youtu.be/suAoAiy-miA) |
 |            | WASM 101 by Asyrique |

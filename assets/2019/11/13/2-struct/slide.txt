@@ -1,0 +1,227 @@
+# 2019-11-12 rust meetup malaysia
+# used with git.suckless.org/sent
+
+Struct, Enum and Pattern Matching
+=================================
+
+Struct
+------
+
+Group of data
+
+Types of struct
+\
+* basic struct
+  - named fields
+  - similar to C struct
+* tuple struct
+  - nameless but ordered fields
+  - behaved like tuple
+* unit-like struct
+  - similar to () - unit type
+  - useful to store traits
+
+Defining a struct
+
+Basic struct
+
+struct Book {
+    name: String,
+    view: u64,
+    tore: bool,
+}
+
+Tuple struct
+
+struct Body(u8, u8, u8);
+
+Unit-like struct
+
+struct Beep;
+
+Initializing a struct
+
+Basic struct
+
+Book {
+    name: String::from("The Rust Programming Language"),
+    view: 1_000_000,
+    tore: false,
+}
+
+Shorthand
+
+let name = "The Rust Programming Language".to_string();
+let view = 1_000_000;
+let tore = false;
+Book { name, view, tore }
+
+Tuple struct
+
+Body(30, 25, 30)
+
+Unit-like struct
+
+Beep
+
+Using a struct
+
+Basic struct
+
+book.name
+
+Tuple struct
+
+body.0
+
+Unit-like struct
+
+beep
+
+Add-on!
+
+Will this compile?
+\
+struct User {
+    name: str,
+    pass: str,
+}
+
+          _ ._  _ , _ ._
+        (_ ' ( `  )_  .__)
+      ( (  (    )   `)  ) _)
+     (__ (_   (_ . _) _) ,__)
+         `~~`\ ' . /`~~`
+              ;   ;
+              /   \
+_____________/_ __ \_____________
+
+A bit on lifetime
+
+struct User<'a> {
+    name: str,
+    pass: str,
+}
+
+Generics? ¯\_(ツ)_/¯
+
+struct Wrapped<T>(T);
+
+Codegen! Wow
+
+\#[derive(Debug)]
+struct Data {
+    text: String,
+}
+\
+let data = Data { text: "hello".to_string() };
+dbg!(data);
+
+Enum
+----
+
+Basic enum in other languages
+
+enum Fighter {
+    Fight,
+    Die,
+}
+
+Algebraic data types
+
+enum Option {
+    Some(u8),
+    None,
+}
+
+enum Option<T> {
+    Some(T),
+    None,
+}
+
+Back to the example
+
+enum Fighter {
+    Fight,
+    Die,
+    Raise(String),  // hand (surrender) or finger
+    Provoke { face: String, sound: String },
+    Run,
+}
+
+Accessing enum
+
+Fighter::Fight
+
+impl Type
+---------
+
+impl Book {
+    fn read(&mut self) -> String {
+        self.view += 1;
+        println!("Read book");
+        String::from("Abracadabra!")
+    }
+\
+    fn tear(&mut self) {
+        println!("Tear book");
+        self.tore = true;
+    }
+\
+    fn burn(self) {
+        println!("Burn book");
+    }
+}
+
+fn main() {
+    let mut book = Book {
+        name: String::from("TRPL"),
+        view: 0,
+        tore: false,
+    };
+\
+    book.read();
+    dbg!(&book);
+\
+    book.tear();
+    dbg!(&book);
+\
+    book.burn();
+    // dbg!(&book);  // book already burned, cannot borrow
+}
+
+Pattern Matching
+----------------
+
+match
+if let
+
+Quick return pattern
+
+let fighter = match fighter {
+    Fighter::Die => return,
+    _ => fighter,
+};
+
+if let fighter = Fighter::Die {
+    return;
+}
+
+Destructuring enum
+
+match fighter {
+    Fighter::Fight => println!("fight"),
+    Fighter::Die | Raise(String::new("Hand")) => return,
+    Raise(something) => println!("fighter raised {}", something),
+    Provoke { face: String::new("sad"), .. } => return,
+    Provoke { sound, .. } if sound.lower() == String::from("haha") => {
+        println!("fighter laugh at the puny little guy");
+    }
+    Provoke { face, sound } => println!("Fighter show {} face with {}", face, sound),
+    _ => unreachable!(),
+}
+
+Additional readings
+\
+- Rust Programming Language book (chapter 4-5)
+- Rust by Example (chapter 3 - custom types)
