@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  The Burger Problem
-date:   2019-12-08 22:49:37 +0800
+date:   2019-12-15 23:32:03 +0800
 categories: code
 ---
 
