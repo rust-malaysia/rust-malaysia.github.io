@@ -8,6 +8,9 @@ permalink: /meetup/
 
 No registration open.
 
+If anyone is interested to give a talk at Rust Meetup Malaysia, please fill-up
+the form https://forms.gle/avqfwuxPkgj4BuMS8. Thanks.
+
 
 Previous Meetups
 ----------------
