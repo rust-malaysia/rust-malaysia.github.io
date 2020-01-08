@@ -17,6 +17,9 @@ Previous Meetups
 
 | Date | Info |
 |----|----|
+| 2020-01-08 | Recording [Rust Lang Meetup - January 2020](https://youtu.be/2jSfmZJxGZc) ([News](https://docs.google.com/presentation/d/1pezcgPIb485_ZR7U3yzo9KWOZ1j22m7y4diVmzgYUmc/edit?usp=sharing)) |
+|            | Road to async/.await, comparisons, examples by Ivan Tham ([Slides](/assets/2020/01/08/1-async/slide.txt)) |
+|            | DOM vs VDOM vs Rust-Dominator by Chong Tien Pow (remote from Penang) ([Slides](https://drive.google.com/file/d/1eDoGnKHo1wkfWAeL1GFGAS1wDEUuoWz8/view)) |
 | 2019-11-13 | Recording [Rust Lang Meetup - November 2019](https://www.youtube.com/watch?v=mgmq3YnfWxs) ([News](https://docs.google.com/presentation/d/16QJrLSBun9hS8GzjZPLYCNcOgRwr8N_RPn-Rs08lpRM/edit?usp=sharing)) |
 |            | Contributing to Rust by Ivan Tham ([Slides](/assets/2019/11/13/1-contrib/slide.txt)) |
 |            | Rust 101 Struct, Enum, Pattern Matching (Easy) by Ivan Tham ([Slides](/assets/2019/11/13/2-struct/slide.txt)) |

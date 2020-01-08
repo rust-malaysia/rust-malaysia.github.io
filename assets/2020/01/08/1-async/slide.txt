@@ -1,0 +1,357 @@
+# 2020-01-08 rust meetup malaysia
+# used with git.suckless.org/sent
+
+Rust Async
+
+Some Introduction
+- Parallel
+- Concurrent
+- Asynchronous - unrelated
+
+Parallel
+a | - - -
+b | - - -
+
+Concurrent
+- - - | a | - - -
+
+Green threads vs Native threads
+
+Other languages (taken from another talk)
+             | synchronous                | asynchronous
+blocking     | old-school implementations | doesn't make sense
+non-blocking | Go, Ruby                   | Node.js
+
+History
+-------
+
+2015
+
+Native threads
+Green threads
+
+Rust 1.0 (without green threads)
+
+2016
+
+futures 0.1
+
+// example is quite new but 0.1
+let future_of_1 = future::ok::<u32, u32>(1);
+let future_of_4 = future_of_1.and_then(|x| {
+    Ok(x + 3)
+});
+
+2017
+
+Experimental coroutines
+- stackless coroutines
+- zero-cost futures
+
+\#[async]
+fn print_lines() -> io::Result<()> {
+    let addr = "127.0.0.1:8080".parse().unwrap();
+    let tcp = await!(TcpStream::connect(&addr))?;
+    ...
+    Ok(())
+}
+
+2018
+
+futures 0.2 (broken)
+
+async/await introduction, planning
+
+async fn print_lines() -> io::Result<()> {
+    let addr = "127.0.0.1:8080".parse().unwrap();
+    let tcp = await!(TcpStream::connect(&addr))?;
+    ...
+    Ok(())
+}
+
+Pin (immovable types)
+
+futures crate -> std (some)
+- task system
+- core Future API
+- IIRC Waker did not get through
+
+2018 edition
+web as one of the focus
+
+async/await missed the edition
+
+2019
+
+ergonomic
+
+4 solutions
+- order of operations
+- syntatic sugar (standard prefix)
+- postfix keyword
+- postfix sigil (e.g. @)
+
+2 solutions (familiarity on await)
+x order of operations
+- syntatic sugar - await something
+- postfix keyword - something await
+x postfix sigil (e.g. @)
+
+prefix vs postfix battle
+
+ergonomic and readability
+- (await foo()?).bar() / await? (foo()?)?
+- foo()?.await.bar()
+feature orthogonality
+- aligns well with ? for error handling
+
+https://paper.dropbox.com/doc/Await-Syntax-Write-Up--Ar_4sezOnbqP7DifqR7_9DwsAg-t9NlOSeI4RQ8AINsaSSyJ
+
+Generators
+
+for await
+
+async destructors
+
+runtime
+
+async-std
+
+2020
+
+Why?
+----
+
+More people do networking in Rust
+
+Servers not just clients
+
+I/O-bound, not CPU-bound
+
+CPU-bound - parallelism
+I/O-bound - concurrency
+
+Native threads not suitable for I/O-bound tasks
+
+Asynchronous I/O (green threads)
+\
+        Main Process
+              |
+              v
+    +-------------------+
+    | Green Threads     |
+    | +-------+-------+ |
+    | | Child | Child | |
+    | +-------+-------+ |
+    | | Child | Child | |
+    +-+-------+-------+-+
+
+Asynchronous I/O (event loop)
+\
+    +---------> -
+    |           |
+    - <---------+
+
+JavaScript | Callback hell -> Promise -> async/await
+Rust       |                  Future  -> async/.await
+
+Promise vs Future
+-----------------
+runtime           | zero-cost
+push based        | pull based
+start on creation | start when polled
+simpler           | complicated
+more allocations  | state machine (faster)
+
+Rust have no garbage collector
+
+Rust Future works both way with WASM JS Promise
+
+Codes
+
+// JavaScript
+// callback
+request('https://google.com/', (response) => {
+  // handle response
+})
+// promise
+request('https://google.com/').then((response) => {
+  // handle response
+})
+// async/await
+async function handler() {
+  let response = await request('https://google.com/')
+  // handle response
+}
+
+// Rust
+// callback
+request("https://google.com/", |response| {
+    // handle response
+});
+// future
+let fut = request("https://google.com/").and_then(|response| {
+    // handle response
+});
+fut.poll(); // or similar (I don't remember)
+// async/.await
+async fn handler() {
+    let response = request("https://google.com/").await;
+}
+
+Rust await and errors
+foo()?.await? - try foo and await and try
+foo()?.await - try foo and await
+foo().await? - await foo and try
+foo().await - await foo
+
+Then vs Now
+-----------
+
+@asyncstd-diff.png
+
+pub trait Future {
+    type Output;
+    fn poll(self: Pin<&mut Self>, cx: &mut Context) -> Poll<Self::Output>;
+}
+
+How?
+----
+
+State Machine
+
+async fn hello(_input: u32) {
+    let a = foo().await;
+    let b = bar().await;
+}
+
+Unrolled into
+
+struct Hello {
+    _input: u32,
+}
+\
+impl Future for Hello {
+    type output = ();
+    fn poll(&mut self, cx: &mut Context) -> Poll<()> {
+    }
+}
+
+struct Hello {
+    _input: u32,
+    state: State,
+}
+\
+impl Future for Hello {
+    type output = ();
+    fn poll(&mut self, cx: &mut Context) -> Poll<()> {
+        match sef.state {
+            Unpolled => ...,
+            Foo => ...,
+            Bar => ...,
+            Ready => ...,
+        }
+    }
+}
+
+struct Hello {
+    _input: u32,
+    state: State,
+    a_fut: Option<FooGet>,
+    b_fut: Option<BarGet>,
+}
+\
+impl Future for Hello {
+    type output = ();
+    fn poll(&mut self, cx: &mut Context) -> Poll<()> {
+        loop {
+            match sef.state {
+                Unpolled => ...,
+                Foo => ...,
+                Bar => ...,
+                Ready => return Poll::ready(()),
+            }
+        }
+    }
+}
+
+Optimizations
+
+zero-cost, async fn -> generator / state machine
+Enum layout are packed with stuff only needed at each suspend
+
+enum Fut {
+    Unpolled { .. },
+    Suspend0 { .. },
+    Suspend1 { .. },
+    Done
+}
+
+        | Fut::Unpolled | Fut::Suspend0 | Fut::Suspend1
+arg1    |       x       |       x       |      x
+state   |       x       |       x       |      x
+local_a |               |       x       |
+local_b |               |               |      x
+
+State (library support)
+-----------------------
+
+Async-std - Async version of standard library
+
+@asyncstd-diff.png
+
+Alternative to
+\
+fn main() {
+    task::block_on(say_hello())
+}
+
+Runtime (~6 IIRC, each have different purpose)
+\
+\#[tokio::main]
+\#[async_std::main]
+
+Split in API
+Sync vs Async
+Read vs AsyncRead
+Write vs AsyncWrite
+surf vs reqwests
+(note reqwests have both)
+
+async end are still new
+- less support for AsyncRead/AsyncWrite
+- e.g. serde-json, serde-*
+
+Future
+------
+
+Async Trait
+
+Currently pin_project!()
+
+Async Closure
+
+How? move |param| { ... }
+
+Async Destructor
+
+Drop? AsyncDrop?
+
+Async Interview
+
+https://smallcultfollowing.com/babysteps/blog/2019/11/22/announcing-the-async-interviews/
+
+More readings
+-------------
+\
+Async Book
+https://rust-lang.github.io/async-book/
+\
+Streams Concurrency
+https://blog.yoshuawuyts.com/streams-concurrency/
+\
+Rust's Journey to Async/Await
+https://www.youtube.com/watch?v=lJ3NC-R3gSI
+\
+RustFest Barcelona - Tyler Mandry: Life of an async fn
+https://youtu.be/ZHP9sUqB3Qs
