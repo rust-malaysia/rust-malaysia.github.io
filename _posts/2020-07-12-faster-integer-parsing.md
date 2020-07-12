@@ -815,7 +815,7 @@ Having said all that, there is a culture of "optimization is the root of all
 evil". That handwritten assembly or hand-optimization has no place anymore. That
 we should just blindly rely on godbolting and hoping that `rustc` do well.
 
-I think both positions are complementary - trust your compiler (fried), trust
+I think both positions are complementary - trust your compiler (friend), trust
 your library vendor, but nothing beats carefully thought out code when you know
 your inputs and you have done your measurements to know it will make a
 difference.
