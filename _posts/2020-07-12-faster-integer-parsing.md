@@ -804,9 +804,12 @@ test bench_trick_simd          ... bench:           8 ns/iter (+/- 1) = 2000 MB/
 
 Compilers are absolutely amazing pieces of technology. They regularly surprise
 the original author (or even blow the original author's mind) at how well they
-can optimize code and see through what the original author is doing. (I have
-nothing to say here except `trick` being the fastest and mind-blown by SIMD not
-being the fastest)
+can optimize code and see through what the original author is doing.
+
+Any last words? I wish serde have support for reading fixed sized strings,
+if not it would be good to have a crate that have support for it like num. I
+have nothing to say here except `trick` being the fastest and mind-blown by
+SIMD not being the fastest.
 
 Having said all that, there is a culture of "optimization is the root of all
 evil". That handwritten assembly or hand-optimization has no place anymore. That
@@ -846,7 +849,7 @@ test bench_unrolled_unsafe     ... bench:          17 ns/iter (+/- 0) = 941 MB/s
 # Post Scriptum
 
 - All benchmarks ran on a 2.70 GHz Intel(R) Core(TM) i7-2620M, on Linux,
-  compiled with rustc 1.46.0-nightly (0cd7ff7dd 2020-07-04)
+  compiled with rustc 1.46.0-nightly (0cd7ff7dd 2020-07-04).
 - I did not do comparison with the original code.
 - I did not get to try `parse_8_chars_simd` because `_mm_loadu_si64` is not
   available in `stdarch` ([pull request](https://github.com/rust-lang/stdarch/pull/870)).
