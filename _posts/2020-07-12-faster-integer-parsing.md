@@ -695,7 +695,7 @@ The original article have SIMD version performing better than the trick version,
 but seemed like SIMD perform worse here. Maybe because of my old laptop. But
 still it is quite surprising to see SIMD code slower than non-SIMD.
 
-Remembering what my dad always said in Cantonese 點有咁大隻蛤乸隨街跳呀？ In
+Remembering what my dad always said in Cantonese 邊度有咁大隻蛤乸隨街跳呀？ In
 English, it means how can you ever find a big clam jumping randomly on the
 streets? Before you can even find it, it probably already ends up in someone
 else stomach. (I hate eating meat but this is just an phrase)
