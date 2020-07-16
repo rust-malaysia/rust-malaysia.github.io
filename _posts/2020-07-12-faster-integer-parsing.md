@@ -249,7 +249,7 @@ pub fn naive_bytes_and(s: &str) -> u64 {
 ```
 
 It involves very simple change, by changing `chars` to `bytes`, and `'0'` to
-`b'0'`. But doing this improves the benchmark by another 70%, huge drop of 7ms.
+`b'0'`. But doing this improves the benchmark by another 70%, huge drop of 7ns.
 We have now reduced more than half the time from the baseline.
 
 ```
@@ -325,7 +325,7 @@ pub fn unrolled(s: &str) -> u64 {
 
 The original article shows that unrolling makes the code faster but it looks
 like the compiler is more clever than we thought, it already auto-vectorizes the
-code before this. 16ms! It is way slower than any implementation using bytes,
+code before this. 16ns! It is way slower than any implementation using bytes,
 we can see this with those `movzx` in `cargo asm parseint::naive_bytes_and_c16`.
 
 ```
@@ -404,7 +404,7 @@ pub fn unrolled_safe(s: &str) -> u64 {
 ```
 
 Looks like this is more worthwhile than using `unsafe` it reduces the timing by
-1ms rather than increasing it by 1ms.
+1ns rather than increasing it by 1ns.
 
 ```
 test bench_unrolled            ... bench:          16 ns/iter (+/- 0) = 1000 MB/s
@@ -594,7 +594,7 @@ test bench_trick               ... bench:           6 ns/iter (+/- 0) = 2666 MB/
 ```
 
 Nice! Looks like this method that we pulled off is able to shave off yet another
-2ms (25%) over the previous fastest method `naive_bytes_and_c16`. How about we
+2ns (25%) over the previous fastest method `naive_bytes_and_c16`. How about we
 let CPU do all the hard work like in the original article?
 
 # The SIMD trick
@@ -785,7 +785,7 @@ pub fn trick_128(s: &str) -> u64 {
 }
 ```
 
-Oh, this is even faster than `trick_simd` but it is slightly slower (1ms) slower
+Oh, this is even faster than `trick_simd` but it is slightly slower (1ns) slower
 than `trick`. Still, this method is way easier than `trick` itself such that it
 looks straightforward without divide and conquer.
 
