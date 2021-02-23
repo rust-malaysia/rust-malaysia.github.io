@@ -4,14 +4,12 @@ title: Meetup
 permalink: /meetup/
 ---
 
-<!-- [Register for Kuala Lumpur Rust November Meetup](https://docs.google.com/forms/d/e/1FAIpQLSfZM9XYmBXq9tjqRziR-O3vBmm4rt1Ltnc9bGcleVrLmZHrSg/viewform) -->
+[Register for Kuala Lumpur Rust 2021 March Meetup](https://docs.google.com/forms/d/e/1FAIpQLSfitjRyZPlfTYWeiZIsnosZYckUMiFStUE_zNGc9NYQWAE9Pw/viewform)
 
-No registration open.
+<!-- No registration open. -->
 
 If anyone is interested to give a talk at Rust Meetup Malaysia, please fill-up
 the form <https://forms.gle/avqfwuxPkgj4BuMS8>. Thanks.
-
-No Rust meetup so far since MCO due to COVID 19, if anyone is interested in taking it online can contact Ivan Tham or Choon Siang Lai at golang (other langs included) telegram.
 
 Previous Meetups
 ----------------
