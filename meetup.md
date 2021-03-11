@@ -4,9 +4,9 @@ title: Meetup
 permalink: /meetup/
 ---
 
-[Register for Kuala Lumpur Rust 2021 March Meetup](https://docs.google.com/forms/d/e/1FAIpQLSfitjRyZPlfTYWeiZIsnosZYckUMiFStUE_zNGc9NYQWAE9Pw/viewform)
+<!-- [Register for Kuala Lumpur Rust 2021 March Meetup](https://docs.google.com/forms/d/e/1FAIpQLSfitjRyZPlfTYWeiZIsnosZYckUMiFStUE_zNGc9NYQWAE9Pw/viewform) -->
 
-<!-- No registration open. -->
+No registration open.
 
 If anyone is interested to give a talk at Rust Meetup Malaysia, please fill-up
 the form <https://forms.gle/avqfwuxPkgj4BuMS8>. Thanks.
@@ -16,6 +16,8 @@ Previous Meetups
 
 | Date | Info |
 |----|----|
+| 2021-03-10 | Recording [Rust Lang Meetup - March 2021](https://youtu.be/pH1JVMAh7Yw) |
+|            | Experience using diesel (and some bonus on a side project with nom and `inline-python!` pandas) by Ivan Tham |
 | 2020-01-08 | Recording [Rust Lang Meetup - January 2020](https://youtu.be/2jSfmZJxGZc) ([News](https://docs.google.com/presentation/d/1pezcgPIb485_ZR7U3yzo9KWOZ1j22m7y4diVmzgYUmc/edit?usp=sharing)) |
 |            | Road to async/.await, comparisons, examples by Ivan Tham ([Slides](/assets/2020/01/08/1-async/slide.txt)) |
 |            | DOM vs VDOM vs Rust-Dominator by Chong Tien Pow (remote from Penang) ([Slides](https://drive.google.com/file/d/1eDoGnKHo1wkfWAeL1GFGAS1wDEUuoWz8/view)) |
