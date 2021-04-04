@@ -9,6 +9,12 @@ tl;dl Rust port of
 <https://kholdstare.github.io/technical/2020/05/26/faster-integer-parsing.html>
 to parse fixed 16 integer.
 
+Update 2021-04-04: [gilescope](https://github.com/gilescope) sent a pull
+request to the repository showing that using `target-cpu=native` can speed up
+the runtime performance, now the results are similar to the original blog post.
+<https://github.com/pickfire/parseint/pull/1> the updated results are at the
+bottom of the post.
+
 Note that a lot of the text are taken from the original article along with my
 additional comments but the code will be written as Rust.
 
@@ -846,6 +852,28 @@ test bench_unrolled_safe       ... bench:          15 ns/iter (+/- 1) = 1066 MB/
 test bench_unrolled_unsafe     ... bench:          17 ns/iter (+/- 0) = 941 MB/s
 ```
 
+2021-04-04 update with `target-cpu=native` for rustc flag provides similar to
+the original blog post, this benchmark came from a newer laptop cpu which the
+benchmark results may be different.
+
+```
+test bench_naive_bytes         ... bench:          10 ns/iter (+/- 0) = 1600 MB/s
+test bench_naive_bytes_and     ... bench:           9 ns/iter (+/- 0) = 1777 MB/s
+test bench_naive_bytes_and_c16 ... bench:           8 ns/iter (+/- 0) = 2000 MB/s
+test bench_naive_bytes_iter    ... bench:          10 ns/iter (+/- 0) = 1600 MB/s
+test bench_naive_chars         ... bench:          10 ns/iter (+/- 0) = 1600 MB/s
+test bench_naive_chars_and     ... bench:          10 ns/iter (+/- 0) = 1600 MB/s
+test bench_naive_chars_iter    ... bench:           9 ns/iter (+/- 0) = 1777 MB/s
+test bench_str_parse           ... bench:          17 ns/iter (+/- 0) = 941 MB/s
+test bench_trick               ... bench:           3 ns/iter (+/- 0) = 5333 MB/s
+test bench_trick_128           ... bench:           3 ns/iter (+/- 0) = 5333 MB/s
+test bench_trick_simd          ... bench:           1 ns/iter (+/- 0) = 16000 MB/s
+test bench_trick_simd_c16      ... bench:           1 ns/iter (+/- 0) = 16000 MB/s
+test bench_unrolled            ... bench:           5 ns/iter (+/- 0) = 3200 MB/s
+test bench_unrolled_safe       ... bench:           3 ns/iter (+/- 0) = 5333 MB/s
+test bench_unrolled_unsafe     ... bench:           3 ns/iter (+/- 0) = 5333 MB/s
+```
+
 # Post Scriptum
 
 - All benchmarks ran on a 2.70 GHz Intel(R) Core(TM) i7-2620M, on Linux,
@@ -854,3 +882,5 @@ test bench_unrolled_unsafe     ... bench:          17 ns/iter (+/- 0) = 941 MB/s
 - I did not get to try `parse_8_chars_simd` because `_mm_loadu_si64` is not
   available in `stdarch` ([pull request](https://github.com/rust-lang/stdarch/pull/870)).
 - You can find the [code and the benchmarks here](https://github.com/pickfire/parseint).
+- New result with `target-cpu=native` ran on AMD Ryzen 5 4500U, on Linux,
+  compiled with cargo 1.52.0-nightly (90691f2bf 2021-03-16) for 2021-04-04 update.
