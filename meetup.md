@@ -17,8 +17,8 @@ Previous Meetups
 | Date | Info |
 |----|----|
 | 2021-05-12 | Recording [Rust Lang Meetup - May 2021](https://www.youtube.com/watch?v=L3X-KJcGNg4&list=PL85XCvVPmGQh3V0Pz-_xFm6VAUTR4aLUw&index=10) |
-|            | PyOxidizer by Ivan Tham ([Slides](/assets/2021/05/12/1-pyoxidizer/slide.md)) |
-|            | Implementing 3rd party trait for 3rd party type by Ivan Tham ([Slide](/assets/2021/05/12/2-integration/slide.md)) |
+|            | PyOxidizer by Ivan Tham ([Slide](/assets/2021/05/12/1-pyoxidizer/slide.txt)) |
+|            | Implementing 3rd party trait for 3rd party type by Ivan Tham ([Slide](/assets/2021/05/12/2-integration/slide.txt)) |
 | 2021-03-10 | Recording [Rust Lang Meetup - March 2021](https://youtu.be/pH1JVMAh7Yw) |
 |            | Experience using diesel (and some bonus on a side project with nom and `inline-python!` pandas) by Ivan Tham |
 | 2020-01-08 | Recording [Rust Lang Meetup - January 2020](https://youtu.be/2jSfmZJxGZc) ([News](https://docs.google.com/presentation/d/1pezcgPIb485_ZR7U3yzo9KWOZ1j22m7y4diVmzgYUmc/edit?usp=sharing)) |
