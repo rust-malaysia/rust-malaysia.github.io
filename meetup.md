@@ -4,9 +4,9 @@ title: Meetup
 permalink: /meetup/
 ---
 
-<!-- [Register for Malaysia Rust 2021 May Meetup](https://forms.gle/D4e6y2i7bFBmmSrX7) -->
+[Register for Malaysia Rust 2021 May Meetup](https://forms.gle/XXLAt8NzjBpJnwuL9)
 
-No registration open.
+<!-- No registration open. -->
 
 If anyone is interested to give a talk at Rust Meetup Malaysia, please fill-up
 the form <https://forms.gle/avqfwuxPkgj4BuMS8>. Thanks.
