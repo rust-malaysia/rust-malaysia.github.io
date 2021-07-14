@@ -4,9 +4,9 @@ title: Meetup
 permalink: /meetup/
 ---
 
-[Register for Malaysia Rust 2021 May Meetup](https://forms.gle/XXLAt8NzjBpJnwuL9)
+<!-- [Register for Malaysia Rust 2021 May Meetup](https://forms.gle/XXLAt8NzjBpJnwuL9) -->
 
-<!-- No registration open. -->
+No registration open.
 
 If anyone is interested to give a talk at Rust Meetup Malaysia, please fill-up
 the form <https://forms.gle/avqfwuxPkgj4BuMS8>. Thanks.
@@ -16,6 +16,8 @@ Previous Meetups
 
 | Date | Info |
 |----|----|
+| 2021-07-14 | Recording [Rust Lang Meetup - July 2021](https://www.youtube.com/watch?v=kJD-cJY2nb4&list=PL85XCvVPmGQh3V0Pz-_xFm6VAUTR4aLUw&index=11) |
+|            | Zero-cost abstarctions by Ivan Tham ([Slide](/assets/2021/07/14/1-zero-cost/slide.txt)) |
 | 2021-05-12 | Recording [Rust Lang Meetup - May 2021](https://www.youtube.com/watch?v=L3X-KJcGNg4&list=PL85XCvVPmGQh3V0Pz-_xFm6VAUTR4aLUw&index=10) |
 |            | PyOxidizer by Ivan Tham ([Slide](/assets/2021/05/12/1-pyoxidizer/slide.txt)) |
 |            | Implementing 3rd party trait for 3rd party type by Ivan Tham ([Slide](/assets/2021/05/12/2-integration/slide.txt)) |
