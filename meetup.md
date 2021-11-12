@@ -6,16 +6,18 @@ permalink: /meetup/
 
 [Register for Malaysia Rust 2021 November Meetup](https://forms.gle/V11VAaiQsqahqFiW8)
 
-<!-- No registration open. -->
+No registration open.
 
-If anyone is interested to give a talk at Rust Meetup Malaysia, please fill-up
-the form <https://forms.gle/avqfwuxPkgj4BuMS8>. Thanks.
+<!-- If anyone is interested to give a talk at Rust Meetup Malaysia, please fill-up
+the form <https://forms.gle/avqfwuxPkgj4BuMS8>. Thanks. -->
 
 Previous Meetups
 ----------------
 
 | Date | Info |
 |----|----|
+| 2021-11-10 | Recording [Rust Lang Meetup - November 2021](https://www.youtube.com/watch?v=9oOEAGFTNdE&list=PL85XCvVPmGQh3V0Pz-_xFm6VAUTR4aLUw&index=13) |
+|            | Rust from a C/C++ perspective (more of a discussion) by Shawn Tan (sybreon) |
 | 2021-07-14 | Recording [Rust Lang Meetup - July 2021](https://www.youtube.com/watch?v=kJD-cJY2nb4&list=PL85XCvVPmGQh3V0Pz-_xFm6VAUTR4aLUw&index=11) |
 |            | Zero-cost abstarctions by Ivan Tham ([Slide](/assets/2021/07/14/1-zero-cost/slide.txt)) |
 | 2021-05-12 | Recording [Rust Lang Meetup - May 2021](https://www.youtube.com/watch?v=L3X-KJcGNg4&list=PL85XCvVPmGQh3V0Pz-_xFm6VAUTR4aLUw&index=10) |
