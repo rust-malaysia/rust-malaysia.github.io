@@ -4,12 +4,12 @@ title: Meetup
 permalink: /meetup/
 ---
 
-[Register for Malaysia Rust 2021 November Meetup](https://forms.gle/V11VAaiQsqahqFiW8)
+[Register for Malaysia Rust 2022 January Meetup](https://forms.gle/V11VAaiQsqahqFiW8)
 
-No registration open.
+<!-- No registration open. -->
 
-<!-- If anyone is interested to give a talk at Rust Meetup Malaysia, please fill-up
-the form <https://forms.gle/avqfwuxPkgj4BuMS8>. Thanks. -->
+If anyone is interested to give a talk at Rust Meetup Malaysia, please fill-up
+the form <https://forms.gle/avqfwuxPkgj4BuMS8>. Thanks.
 
 Previous Meetups
 ----------------
