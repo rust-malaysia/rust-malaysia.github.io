@@ -4,7 +4,7 @@ title: Meetup
 permalink: /meetup/
 ---
 
-[Register for Malaysia Rust 2022 January Meetup](https://forms.gle/V11VAaiQsqahqFiW8)
+[Register for Malaysia Rust 2022 January Meetup](https://forms.gle/fFMvD89uxCSdrdSE7)
 
 <!-- No registration open. -->
 
