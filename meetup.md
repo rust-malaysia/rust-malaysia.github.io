@@ -16,6 +16,8 @@ Previous Meetups
 
 | Date | Info |
 |----|----|
+| 2022-01-12 | Recording [Rust Lang Meetup - January 2022](https://www.youtube.com/watch?v=orh02-RucPo&list=PL85XCvVPmGQh3V0Pz-_xFm6VAUTR4aLUw&index=13) |
+|            | 3 Rust Myth - regarding error handling library, mutability and unsafe by Ivan Tham ([Slide](assets/2022/01/12/1-myth/slide.txt)) |
 | 2021-11-10 | Recording [Rust Lang Meetup - November 2021](https://www.youtube.com/watch?v=9oOEAGFTNdE&list=PL85XCvVPmGQh3V0Pz-_xFm6VAUTR4aLUw&index=13) |
 |            | Rust from a C/C++ perspective (more of a discussion) by Shawn Tan (sybreon) |
 | 2021-07-14 | Recording [Rust Lang Meetup - July 2021](https://www.youtube.com/watch?v=kJD-cJY2nb4&list=PL85XCvVPmGQh3V0Pz-_xFm6VAUTR4aLUw&index=11) |
