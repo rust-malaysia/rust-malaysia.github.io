@@ -1,0 +1,1160 @@
+%title: Traits
+%author: Ivan Tham
+%date: 2022-01-12
+%usage: mdp slide.md
+
+-> Rust Traits <-
+=================
+
+- no static/dynamic dispatch as this will be enough
+- below examples will be structured in story form to show why and how
+
+---
+
+-> Traits <-
+============
+
+- easier to understand in chinese as 特征, trait is less commonly used
+- part of OOP, composition over inheritance instead
+- no data, only methods (or consider contracts?)
+- integrated with the rest, unsafe/generics/lifetime/type inference
+- trait must be in scope to be able to call its method
+
+---
+
+-> Traits <-
+============
+
+Why is traits needed?
+
+Here comes a story of two concepts of opposing forces, `Yin` and `Yang`.
+Also known as (material) energy I believe.
+
+```rust
+struct Yin;
+
+struct Yang;
+```
+
+---
+
+-> Traits <-
+============
+
+Both of them implements the same function.
+
+```rust
+impl Yin {
+    fn is_light() -> bool {
+        false
+    }
+}
+
+impl Yang {
+    fn is_light() -> bool {
+        true
+    }
+}
+```
+
+---
+
+-> Traits <-
+============
+
+Then came `is_light` function to check if an item is light.
+
+```rust
+fn is_light(_is_light: impl Fn() -> bool) {}  // generic
+
+fn main() {
+    is_light(Yin::is_light);
+}
+```
+
+---
+
+-> Traits <-
+============
+
+We know everything will change, so here comes `is_one` function.
+
+```rust
+impl Yin {
+    fn is_one() -> bool {
+        false
+    }
+}
+
+impl Yang {
+    fn is_one() -> bool {
+        true
+    }
+}
+
+fn is_one(_is_one: impl Fn() -> bool) {}
+
+fn main() {
+    is_one(Yin::is_one);
+}
+```
+
+---
+
+-> Traits <-
+============
+
+And again, now we have more complicated function that takes needs the
+behavior of both previous functions.
+
+```rust
+...
+
+// notice this is getting harder and harder to track
+fn is_yang(_is_light: impl Fn() -> bool, _is_one: impl Fn() -> bool) {}
+```
+
+---
+
+-> Traits <-
+============
+
+Hmm, what if we could have something that can represent all of them?
+
+Traits to the rescue - defining shared behavior.
+
+```rust
+trait Energy {
+    fn is_light(&self) -> bool;  // note that self is required for trait
+    fn is_one(&self) -> bool;
+}
+
+impl Energy for Yin {  // note now it have `Energy for`
+    fn is_light(&self) -> bool {
+        false
+    }
+    ...
+}
+
+// previous functions will also break due to &self but not important
+
+fn is_yang(energy: impl Energy) {
+    energy.is_light();
+}
+
+fn main() {
+    is_yang(Yin);
+}
+```
+
+---
+
+-> Extension Traits <-
+======================
+
+- rust only allows inherent methods to be defined on type where that type
+  is defined, same goes for trait
+- what if we want to extend third party trait with more methods?
+- this known as extention traits, to extend another trait
+- for example, we want to extend `Foo` trait from `foo` crate
+
+```rust
+extern crate foo;  // old rust 2015 method to declare external crate
+use foo::Foo;
+
+trait FooExt {
+    fn bar(&self);
+}
+
+impl FooExt for Foo {
+    fn bar(&self) { .. }
+}
+
+// to use the extention trait in another crate
+mod another {
+    use super::FooExt;  // then we can start using Foo::bar
+}
+```
+
+---
+
+-> Default Implementations <-
+=============================
+
+- above energy examples we only see methods defined in implementation
+- what if we want a helper in trait that depends on another method?
+
+```rust
+trait Jumpable {
+    fn jump(&self);
+    fn double_jump(&self);
+}
+
+struct HomoSapien {
+    name: String,
+}
+
+impl Jumpable for HomoSapien {
+    fn jump(&self) {
+        println!("I jump");
+    }
+
+    fn double_jump(&self) {  // imagine we keep doing this
+        self.jump();
+        self.jump();
+    }
+}
+```
+
+---
+
+-> Default Implementations <-
+=============================
+
+- we need defaults, default implementation to the rescue
+
+```rust
+trait Jumpable {
+    fn jump(&self);
+    fn double_jump(&self) {  // this is the default
+        self.jump();
+        self.jump();
+    }
+}
+
+struct HomoSapien {
+    name: String,
+}
+
+impl Jumpable for HomoSapien {
+    fn jump(&self) {
+        println!("I jump");
+    }
+    // double_jump no longer required but can still be overridden
+}
+```
+
+---
+
+-> Trait Bounds <-
+==================
+
+- trait bounds are slightly similar to above `impl Trait`
+- this is related to generics so lets take a step back for generics
+
+---
+
+-> Small generics recap <-
+--------------------------
+
+- say we have a function that return one item or the other
+
+```rust
+fn rand(x: usize, y: usize) -> usize {
+    if true { x } else { y }
+}
+```
+
+---
+
+-> Small generics recap <-
+--------------------------
+
+- and we need another version but for a different type
+
+```rust
+fn rand(x: String, y: String) -> String {
+    if true { x } else { y }
+}
+```
+
+---
+
+-> Small generics recap <-
+--------------------------
+
+- but rust will error because the same function is defined twice
+
+```rust
+error[E0428]: the name `rand` is defined multiple times
+ --> src/main.rs:9:1
+  |
+1 | fn rand(x: usize, y: usize) -> usize {
+  | ------------------------------------ previous definition of the value `rand` here
+...
+9 | fn rand(x: String, y: String) -> String {
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ `rand` redefined here
+  |
+  = note: `rand` must be defined only once in the value namespace of this module
+```
+
+---
+
+-> Small generics recap <-
+--------------------------
+
+- then people start doing this
+
+```rust
+fn rand_usize(x: usize, y: usize) -> usize {
+    if true { x } else { y }
+}
+
+fn rand_string(x: String, y: String) -> String {
+    if true { x } else { y }
+}
+```
+
+---
+
+-> Small generics recap <-
+--------------------------
+
+- what if we can say they are the same thing?
+- generics to the rescue
+
+```rust
+fn rand<T>(x: T, y: T) -> T {
+    if true { x } else { y }
+}
+```
+
+---
+
+-> Trait Bounds <-
+==================
+
+- back to trait bounds after we acquired generics
+- with **trait in parameters** (`impl Trait`) without generics
+
+```rust
+// this won't work like before because `Foo` can be different
+fn rand(x: impl Foo, y: impl Foo) -> impl Foo {
+    if true { x } else { y }
+}
+```
+
+---
+
+-> Trait Bounds <-
+==================
+
+- what if we need generics but still limit the item?
+- trait bounds to the rescue, essentially generic bounded by trait
+
+```rust
+// T is bounded by Foo
+fn rand<T: Foo>(x: T, y: T) -> T {
+    if true { x } else { y }
+}
+```
+
+- note, we can also specify more generics like `<T: Foo, U: Foo>`
+
+---
+
+-> Trait Bounds <-
+==================
+
+- if we need more restrictions, we can do `T: Foo + Bar`
+
+```rust
+// T is bounded by both Foo and Bar
+fn rand<T: Foo + Bar>(x: T, y: T) -> T {
+    if true { x } else { y }
+}
+
+// side note, + can also be used in `impl Trait`
+fn hello(x: impl Foo + Bar) {}
+```
+
+---
+
+-> Supertrait <-
+================
+
+- sort of *inheritance* for traits
+- what if we need a trait to depend on another trait?
+- say, we want `Baz` to run `Foo` twice
+
+```rust
+trait Runable {
+    fn run(&self) {}
+}
+trait NarutoRunable: Runable { // + also works here
+    fn naruto_run(&self) {
+        self.run(); // with hands behind -。-
+    }
+}
+
+fn go(human: impl NarutoRunable) {
+    human.naruto_run();
+}
+
+struct Naruto;
+impl Runable for Naruto {} // this is required for NarutoRunable
+impl NarutoRunable for Naruto {}
+
+fn main() {
+    go(Naruto);
+}
+```
+
+---
+
+-> Associated Types <-
+======================
+
+- i am lazy so just took rfc example
+- an example trait with generic
+
+```rust
+trait Graph<N, E> {
+    fn has_edge(&self, &N, &N) -> bool;
+    ...
+}
+```
+
+- but to use it, it is inconvenient to write out so many types
+
+```rust
+fn distance<N, E, G: Graph<N, E>>(
+    graph: &G, start: &N, end: &N,
+) -> uint { ... }
+```
+
+---
+
+-> Associated Types <-
+======================
+
+- associated types here helps to associate the item to the trait
+- but no more generics, means the trait can only have one of these
+
+```rust
+trait Graph {
+    type N;
+    type E;
+    fn has_edge(&self, &N, &N) -> bool;
+    ...
+}
+
+// when impl just need to specify type
+```
+
+- now `N` and `E` are associated to `Graph`, more readable
+
+```rust
+fn distance<G: Graph>( // no more N, E
+    graph: &G, start: &G::N, end: &G::N,
+) -> uint { ... }
+```
+
+---
+
+-> Associated Types <-
+======================
+
+- there are also defaults with `type T = String;`
+- additional generics still work in trait `Trait<T>` with associate type
+- there is also GAT (generic associated type) but not fully stabilized
+
+```rust
+trait StreamingIterator {
+    type Item<'a>; // lifetime is used here but type can be used also
+    fn next<'a>(&'a mut self) -> Option<Self::Item<'a>>;
+}
+```
+
+---
+
+-> Associated Type vs Generic Type <-
+=====================================
+
+- associated types are used when there is only exact one `impl`
+
+```rust
+pub trait Iterator {
+    type Item; // Iterator can only have exactly one item type
+    ...
+}
+```
+
+- generic types are used when multiple types are needed
+
+```rust
+pub trait FromIterator<A> {
+    fn from_iter<T>(iter: T) -> Self
+    where // same as trait bounds but different syntax
+        T: IntoIterator<Item = A>;
+} // another example is Borrow which is easier
+```
+
+- note that both can be mixed, see `Add` trait for example
+
+```rust
+pub trait Add<Rhs = Self> {
+    type Output;
+    fn add(self, rhs: Rhs) -> Self::Output;
+}
+```
+
+---
+
+-> Trait Concerns and Results <-
+================================
+
+Issues with traits and the resulting design.
+
+---
+
+-> Autoderef and Ambiguity <-
+-----------------------------
+
+By default, traits are autoderefed (`Deref` trait), the types are infered.
+If two traits are in the same place, which one to resolve?
+
+```rust
+trait Pilot {
+    fn fly(&self);
+}
+
+trait Wizard {
+    fn fly(&self);
+}
+
+struct Human;
+
+impl Pilot for Human {
+    fn fly(&self) {
+        println!("This is your captain speaking.");
+    }
+}
+
+impl Wizard for Human {
+    fn fly(&self) {
+        println!("Up!");
+    }
+}
+
+impl Human {
+    fn fly(&self) {
+        println!("*waving arms furiously*");
+    }
+}
+```
+
+---
+
+-> Autoderef and Ambiguity <-
+-----------------------------
+
+The error shows that rust does not know which trait to use:
+
+```rust
+   Compiling traits-example v0.1.0 (file:///projects/traits-example)
+error[E0283]: type annotations needed
+  --> src/main.rs:20:43
+   |
+20 |     println!("A baby dog is called a {}", Animal::baby_name());
+   |                                           ^^^^^^^^^^^^^^^^^ cannot infer type
+   |
+   = note: cannot satisfy `_: Animal`
+note: required by `Animal::baby_name`
+  --> src/main.rs:2:5
+   |
+2  |     fn baby_name() -> String;
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+For more information about this error, try `rustc --explain E0283`.
+error: could not compile `traits-example` due to previous error
+```
+
+---
+
+```
+                          ``:::::''
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+```
+
+---
+
+```
+                      ``::::||||||||:''
+                          ``:::::''
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+```
+
+---
+
+```
+                     :::::::::::::||||::'
+                      ``::::||||||||:''
+                          ``:::::''
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+```
+
+---
+
+```
+                    ::...       ..::||||:'
+                     :::::::::::::||||::'
+                      ``::::||||||||:''
+                          ``:::::''
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+```
+
+---
+
+```
+                   ..              .::|||:'
+                    ::...       ..::||||:'
+                     :::::::::::::||||::'
+                      ``::::||||||||:''
+                          ``:::::''
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+```
+
+---
+
+```
+                             ~~~     ::|||:
+                   ..              .::|||:'
+                    ::...       ..::||||:'
+                     :::::::::::::||||::'
+                      ``::::||||||||:''
+                          ``:::::''
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+```
+
+---
+
+```
+                  .        `.   .'   ,::||:
+                             ~~~     ::|||:
+                   ..              .::|||:'
+                    ::...       ..::||||:'
+                     :::::::::::::||||::'
+                      ``::::||||||||:''
+                          ``:::::''
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+```
+
+---
+
+```
+                           |     |    ::|::
+                  .        `.   .'   ,::||:
+                             ~~~     ::|||:
+                   ..              .::|||:'
+                    ::...       ..::||||:'
+                     :::::::::::::||||::'
+                      ``::::||||||||:''
+                          ``:::::''
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+```
+
+---
+
+```
+                   .       |     |    ::::
+                           |     |    ::|::
+                  .        `.   .'   ,::||:
+                             ~~~     ::|||:
+                   ..              .::|||:'
+                    ::...       ..::||||:'
+                     :::::::::::::||||::'
+                      ``::::||||||||:''
+                          ``:::::''
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+```
+
+---
+
+```
+                           |     |   `:::
+                   .       |     |    ::::
+                           |     |    ::|::
+                  .        `.   .'   ,::||:
+                             ~~~     ::|||:
+                   ..              .::|||:'
+                    ::...       ..::||||:'
+                     :::::::::::::||||::'
+                      ``::::||||||||:''
+                          ``:::::''
+            
+            
+            
+            
+            
+            
+            
+            
+            
+```
+
+---
+
+```
+                     .     |     | `:::.
+                           |     |   `:::
+                   .       |     |    ::::
+                           |     |    ::|::
+                  .        `.   .'   ,::||:
+                             ~~~     ::|||:
+                   ..              .::|||:'
+                    ::...       ..::||||:'
+                     :::::::::::::||||::'
+                      ``::::||||||||:''
+                          ``:::::''
+            
+            
+            
+            
+            
+            
+            
+            
+```
+
+---
+
+```
+                        . `|     |':..
+                     .     |     | `:::.
+                           |     |   `:::
+                   .       |     |    ::::
+                           |     |    ::|::
+                  .        `.   .'   ,::||:
+                             ~~~     ::|||:
+                   ..              .::|||:'
+                    ::...       ..::||||:'
+                     :::::::::::::||||::'
+                      ``::::||||||||:''
+                          ``:::::''
+            
+            
+            
+            
+            
+            
+            
+```
+
+---
+
+```
+                           _ ~~~ _
+                        . `|     |':..
+                     .     |     | `:::.
+                           |     |   `:::
+                   .       |     |    ::::
+                           |     |    ::|::
+                  .        `.   .'   ,::||:
+                             ~~~     ::|||:
+                   ..              .::|||:'
+                    ::...       ..::||||:'
+                     :::::::::::::||||::'
+                      ``::::||||||||:''
+                          ``:::::''
+            
+            
+            
+            
+            
+            
+```
+
+---
+
+```
+                           `...::'
+                           _ ~~~ _
+                        . `|     |':..
+                     .     |     | `:::.
+                           |     |   `:::
+                   .       |     |    ::::
+                           |     |    ::|::
+                  .        `.   .'   ,::||:
+                             ~~~     ::|||:
+                   ..              .::|||:'
+                    ::...       ..::||||:'
+                     :::::::::::::||||::'
+                      ``::::||||||||:''
+                          ``:::::''
+            
+            
+            
+            
+            
+```
+
+---
+
+```
+                           |   .:|
+                           `...::'
+                           _ ~~~ _
+                        . `|     |':..
+                     .     |     | `:::.
+                           |     |   `:::
+                   .       |     |    ::::
+                           |     |    ::|::
+                  .        `.   .'   ,::||:
+                             ~~~     ::|||:
+                   ..              .::|||:'
+                    ::...       ..::||||:'
+                     :::::::::::::||||::'
+                      ``::::||||||||:''
+                          ``:::::''
+            
+            
+            
+            
+```
+
+
+---
+
+```
+                           |    :|
+                           |   .:|
+                           `...::'
+                           _ ~~~ _
+                        . `|     |':..
+                     .     |     | `:::.
+                           |     |   `:::
+                   .       |     |    ::::
+                           |     |    ::|::
+                  .        `.   .'   ,::||:
+                             ~~~     ::|||:
+                   ..              .::|||:'
+                    ::...       ..::||||:'
+                     :::::::::::::||||::'
+                      ``::::||||||||:''
+                          ``:::::''
+            
+            
+            
+```
+
+---
+
+```
+                           |    :|
+                           |    :|
+                           |   .:|
+                           `...::'
+                           _ ~~~ _
+                        . `|     |':..
+                     .     |     | `:::.
+                           |     |   `:::
+                   .       |     |    ::::
+                           |     |    ::|::
+                  .        `.   .'   ,::||:
+                             ~~~     ::|||:
+                   ..              .::|||:'
+                    ::...       ..::||||:'
+                     :::::::::::::||||::'
+                      ``::::||||||||:''
+                          ``:::::''
+            
+            
+```
+
+---
+
+```
+                           |    :|
+                           |    :|
+                           |    :|
+                           |   .:|
+                           `...::'
+                           _ ~~~ _
+                        . `|     |':..
+                     .     |     | `:::.
+                           |     |   `:::
+                   .       |     |    ::::
+                           |     |    ::|::
+                  .        `.   .'   ,::||:
+                             ~~~     ::|||:
+                   ..              .::|||:'
+                    ::...       ..::||||:'
+                     :::::::::::::||||::'
+                      ``::::||||||||:''
+                          ``:::::''
+ 
+```
+
+---
+
+
+```
+                           |    :|
+                           |    :|
+                           |    :|
+                           |    :|
+                           |   .:|
+                           `...::'
+                           _ ~~~ _
+                        . `|     |':..
+                     .     |     | `:::.
+                           |     |   `:::
+                   .       |     |    ::::
+                           |     |    ::|::
+                  .        `.   .'   ,::||:
+                             ~~~     ::|||:
+                   ..              .::|||:'
+                    ::...       ..::||||:'
+                     :::::::::::::||||::'
+                      ``::::||||||||:''
+                          ``:::::''
+```
+
+---
+
+```
+                            _____
+                           |    :|
+                           |    :|
+                           |    :|
+                           |    :|
+                           |   .:|
+                           `...::'
+                           _ ~~~ _
+                        . `|     |':..
+                     .     |     | `:::.
+                           |     |   `:::
+                   .       |     |    ::::
+                           |     |    ::|::
+                  .        `.   .'   ,::||:
+                             ~~~     ::|||:
+                   ..              .::|||:'
+                    ::...       ..::||||:'
+                     :::::::::::::||||::'
+                      ``::::||||||||:''
+```
+
+---
+
+```
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                             ____
+                     __,-~~/~    `---.
+                   _/_,---(      ,    )
+               __ /        <    /   )  \___
+- ------===;;;'====------------------===;;;===----- -  -
+                  \/  ~"~"~"~"~"~\~"~)~"/
+                  (_ (   \  (     >    \)
+                   \_( _ <         >_>'
+                      ~ `-i' ::>|--"
+                          I;|.|.|
+                         <|i::|i|`.
+                        (` ^'"`-' ")
+```
+
+---
+
+> **お前はもう死んでいる。**
+>
+
+---
+
+> **お前はもう死んでいる。**
+> (You are already dead.)
+
+---
+
+> **何？**
+> (What?)
+
+---
+
+-> Autoderef and Ambiguity <-
+-----------------------------
+
+To solve it, use fully qualified syntax with `<Type as Trait>::function`
+
+```rust
+fn main() {
+    println!("A baby dog is called a {}", <Dog as Animal>::baby_name());
+}
+```
+
+---
+
+-> Coherence <-
+---------------
+
+Discussed in one of the previous talks. Basically means **at most one
+implementation** of a trait for any given type.
+
+Given the example of serde.
+
+```rust
+use serde::Serialize;
+use other_crate::Duration;
+
+// Not allowed by orphan rule.
+impl Serialize for Duration {
+    /* ... */
+}
+```
+
+One way to solve this is to duplicate the original struct into one's
+own crate.
+
+---
+
+-> Module confusion <-
+----------------------
+
+- Extension traits is imported like normal types
+  - Can easily go unnoticed or hard to know what is it for
+  - And also could be easily hidden within `use xx::prelude::*;`
+- No greppability, cannot just search the same word
+
+```rust
+use std::fs::File;
+use std::io::{BufReader, Read};  // or use::std::io::prelude::*;
+// BufReader is a type
+// Read is a trait, if trait not included it will error
+
+fn main() -> Result<(), std::io::Error> {
+    let mut f = BufReader::new(File::open("hello")?);
+    let mut buf = [0; 10];
+
+    let n = f.read(&mut buf)?;
+    println!("Read bytes: {:?}", &buf[..n]);
+    Ok(())
+}
+```
+
+---
+
+-> Q&A <-
+=========

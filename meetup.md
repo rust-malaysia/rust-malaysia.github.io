@@ -16,6 +16,8 @@ Previous Meetups
 
 | Date | Info |
 |----|----|
+| 2022-03-09 | Recording [Rust Lang Meetup - March 2022](https://www.youtube.com/watch?v=iHl7DhLBRow&list=PL85XCvVPmGQh3V0Pz-_xFm6VAUTR4aLUw&index=15) |
+|            | Traits by Ivan Tham ([Slide](assets/2022/03/09/1-traits/slide.txt)) |
 | 2022-01-12 | Recording [Rust Lang Meetup - January 2022](https://www.youtube.com/watch?v=orh02-RucPo&list=PL85XCvVPmGQh3V0Pz-_xFm6VAUTR4aLUw&index=13) |
 |            | 3 Rust Myth - regarding error handling library, mutability and unsafe by Ivan Tham ([Slide](assets/2022/01/12/1-myth/slide.txt)) |
 | 2021-11-10 | Recording [Rust Lang Meetup - November 2021](https://www.youtube.com/watch?v=9oOEAGFTNdE&list=PL85XCvVPmGQh3V0Pz-_xFm6VAUTR4aLUw&index=13) |
