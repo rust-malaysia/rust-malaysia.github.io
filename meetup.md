@@ -16,6 +16,8 @@ Previous Meetups
 
 | Date | Info |
 |----|----|
+| 2022-09-14 | Recording [Rust Lang Meetup - September 2022](https://www.youtube.com/watch?v=4FfZsONwprk&list=PL85XCvVPmGQh3V0Pz-_xFm6VAUTR4aLUw&index=16) |
+|            | Rust WASM UI by Chong Thien Pow (thienpow) ([Slides](https://docs.google.com/presentation/d/1iQ966OhCyff-hLhJ90spt4IRctXGx0-ZTnSTQlvxvRQ/edit#slide=id.p)) |
 | 2022-05-11 | Recording [Rust Lang Meetup - May 2022](https://www.youtube.com/watch?v=m4aK985lXOg&list=PL85XCvVPmGQh3V0Pz-_xFm6VAUTR4aLUw&index=15) |
 |            | Writing Web Services with Rust + Axum by Hanif Bin Ariffin ([Slide](https://docs.google.com/presentation/d/16XbOxqQghnQmu3Nta5ci8weza_vAiGdZo0AXeuy7mkA/edit?usp=sharing)) |
 | 2022-03-09 | Recording [Rust Lang Meetup - March 2022](https://www.youtube.com/watch?v=iHl7DhLBRow&list=PL85XCvVPmGQh3V0Pz-_xFm6VAUTR4aLUw&index=15) |
