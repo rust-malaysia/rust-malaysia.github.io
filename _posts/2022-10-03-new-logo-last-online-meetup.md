@@ -1,22 +1,16 @@
 ---
 layout: post
 title:  "New logo, last online meetup"
-# date:   2022-10-11 09:09:29 +0800
+date:   2022-10-03 20:00:00 +0800
 categories: community
 ---
 
 # New logo
 
-Thanks to woolly from Engineers.My, we now have a new logo.
+Thanks to woolly from [Engineers.MY](https://engineers.my/), we now have a new
+logo.
 
 [![rust malaysia new logo](/images/wendko_rust_malaysia.png)](/images/wendko_rust_malaysia.png)
-
-> Dare I? Yes, I do! It looked like a strawberry being strangled by 4 green
-> eyed black reptiles.  -- angch
-
-Then, we have a variant of the logo thanks to angch.
-
-[![rust malaysia new logo](/images/wendko_rust_malaysia_snake.png)](/images/wendko_rust_malaysia_snake.png)
 
 # Last online meetup
 
