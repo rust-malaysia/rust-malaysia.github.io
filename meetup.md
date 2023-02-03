@@ -4,9 +4,9 @@ title: Meetup
 permalink: /meetup/
 ---
 
-<!-- [Register for Malaysia Rust 2022 November Meetup](https://forms.gle/zWXcMDAnnibiL4ni9) -->
+[Register for Malaysia Rust 2023 Febuary Meetup](https://forms.gle/1bJpsu3HDtzDkF6G7)
 
-No registration open.
+<!-- No registration open. -->
 
 If anyone is interested to give a talk at Rust Meetup Malaysia, please fill-up
 the form <https://forms.gle/avqfwuxPkgj4BuMS8>. Thanks.
@@ -20,7 +20,7 @@ Previous Meetups
 |            | Knots (Scott Steele) ([Slides](assets/2022/11/1-knots/2022-11-09_Rust_Malaysia_knot-so-good.pdf)) ([Code](https://github.com/scooter-dangle/knotty/tree/main/examples/knot-so-good)) |
 |            | Golang & Rust in Blockchain (Chee Chyuan) ([Slides](https://docs.google.com/presentation/d/1CSbVpfYJCZTpSYiByezi6-_dGDlp_RIInzQUBpcXMng/edit?usp=sharing)) |
 |            | Microcontroller Unit - MCU (Raj) ([Slides](assets/2022/11/3-embedded/MCU_RAJ.pdf)) |
-|            | Rust & Flutter (Allen Wyma) ([Slides]()) |
+|            | Rust & Flutter (Allen Wyma) |
 | 2022-09-14 | Recording [Rust Lang Meetup - September 2022](https://www.youtube.com/watch?v=4FfZsONwprk&list=PL85XCvVPmGQh3V0Pz-_xFm6VAUTR4aLUw&index=16) |
 |            | Rust WASM UI by Chong Thien Pow (thienpow) ([Slides](https://docs.google.com/presentation/d/1iQ966OhCyff-hLhJ90spt4IRctXGx0-ZTnSTQlvxvRQ/edit#slide=id.p)) |
 | 2022-05-11 | Recording [Rust Lang Meetup - May 2022](https://www.youtube.com/watch?v=m4aK985lXOg&list=PL85XCvVPmGQh3V0Pz-_xFm6VAUTR4aLUw&index=15) |
