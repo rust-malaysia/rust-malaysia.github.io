@@ -16,11 +16,13 @@ Previous Meetups
 
 | Date | Info |
 |----|----|
+| 2023-02-08 | Recording [TODO] |
+|            | The journey to Rust from a student by Marcus Lee ([Slides](https://docs.google.com/presentation/d/1-jpPUncAZ8n4f-7ZUWZhAM2UfQpwEvq2ptSjHNdIWUw/edit#slide=id.p)) |
 | 2022-11-09 | Recording [Rust Lang Meetup - November 2022](https://www.youtube.com/watch?v=Ht4jONi_yO8&list=PLN1peJcgmEZP1P3nLPTShIefVT1rbWODy&index=17) |
-|            | Knots (Scott Steele) ([Slides](assets/2022/11/1-knots/2022-11-09_Rust_Malaysia_knot-so-good.pdf)) ([Code](https://github.com/scooter-dangle/knotty/tree/main/examples/knot-so-good)) |
-|            | Golang & Rust in Blockchain (Chee Chyuan) ([Slides](https://docs.google.com/presentation/d/1CSbVpfYJCZTpSYiByezi6-_dGDlp_RIInzQUBpcXMng/edit?usp=sharing)) |
-|            | Microcontroller Unit - MCU (Raj) ([Slides](assets/2022/11/3-embedded/MCU_RAJ.pdf)) |
-|            | Rust & Flutter (Allen Wyma) |
+|            | Knots by Scott Steele ([Slides](assets/2022/11/1-knots/2022-11-09_Rust_Malaysia_knot-so-good.pdf)) ([Code](https://github.com/scooter-dangle/knotty/tree/main/examples/knot-so-good)) |
+|            | Golang & Rust in Blockchain by Chee Chyuan ([Slides](https://docs.google.com/presentation/d/1CSbVpfYJCZTpSYiByezi6-_dGDlp_RIInzQUBpcXMng/edit?usp=sharing)) |
+|            | Microcontroller Unit - MCU by Raj ([Slides](assets/2022/11/3-embedded/MCU_RAJ.pdf)) |
+|            | Rust & Flutter by Allen Wyma |
 | 2022-09-14 | Recording [Rust Lang Meetup - September 2022](https://www.youtube.com/watch?v=4FfZsONwprk&list=PL85XCvVPmGQh3V0Pz-_xFm6VAUTR4aLUw&index=16) |
 |            | Rust WASM UI by Chong Thien Pow (thienpow) ([Slides](https://docs.google.com/presentation/d/1iQ966OhCyff-hLhJ90spt4IRctXGx0-ZTnSTQlvxvRQ/edit#slide=id.p)) |
 | 2022-05-11 | Recording [Rust Lang Meetup - May 2022](https://www.youtube.com/watch?v=m4aK985lXOg&list=PL85XCvVPmGQh3V0Pz-_xFm6VAUTR4aLUw&index=15) |
