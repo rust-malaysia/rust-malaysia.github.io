@@ -4,9 +4,9 @@ title: Meetup
 permalink: /meetup/
 ---
 
-[Register for Malaysia Rust 2023 Febuary Meetup](https://forms.gle/1bJpsu3HDtzDkF6G7)
+<!-- [Register for Malaysia Rust 2023 Febuary Meetup](https://forms.gle/1bJpsu3HDtzDkF6G7) -->
 
-<!-- No registration open. -->
+No registration open.
 
 If anyone is interested to give a talk at Rust Meetup Malaysia, please fill-up
 the form <https://forms.gle/avqfwuxPkgj4BuMS8>. Thanks.
@@ -16,7 +16,7 @@ Previous Meetups
 
 | Date | Info |
 |----|----|
-| 2023-02-08 | Recording [TODO] |
+| 2023-02-08 | Recording [Rust Lang Meetup - Febuary 2023](https://www.youtube.com/watch?v=rh1ZJXOuco8&list=PL85XCvVPmGQh3V0Pz-_xFm6VAUTR4aLUw&index=18) |
 |            | The journey to Rust from a student by Marcus Lee ([Slides](https://docs.google.com/presentation/d/1-jpPUncAZ8n4f-7ZUWZhAM2UfQpwEvq2ptSjHNdIWUw/edit#slide=id.p)) |
 | 2022-11-09 | Recording [Rust Lang Meetup - November 2022](https://www.youtube.com/watch?v=Ht4jONi_yO8&list=PLN1peJcgmEZP1P3nLPTShIefVT1rbWODy&index=17) |
 |            | Knots by Scott Steele ([Slides](assets/2022/11/1-knots/2022-11-09_Rust_Malaysia_knot-so-good.pdf)) ([Code](https://github.com/scooter-dangle/knotty/tree/main/examples/knot-so-good)) |
