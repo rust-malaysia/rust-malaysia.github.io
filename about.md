@@ -6,11 +6,13 @@ permalink: /about/
 
 Related resources with Rust community in Malaysia.
 
+- [Telegram channel][telegram-channel] (to subscribe for event updates)
 - [Devkami events][devkami]
 - [Facebook group][facebook]
 - [Github organization][github]
 - [Telegram group (with golang, erlang and haskell)][telegram]
 
+[telegram-channel]: https://t.me/+dF46Fly4A_BjOTJl
 [devkami]:  https://devkami.com/page/meetups/
 [facebook]: https://www.facebook.com/groups/1876280775927500/
 [github]:   https://github.com/rust-malaysia
