@@ -9,8 +9,8 @@ permalink: /meetup/
 
 No registration open.
 
-<!-- If anyone is interested to give a talk at Rust Meetup Malaysia, please fill-up
-the form <https://forms.gle/avqfwuxPkgj4BuMS8>. Thanks. -->
+If anyone is interested to give a talk at Rust Meetup Malaysia, please fill-up
+the form <https://forms.gle/avqfwuxPkgj4BuMS8>. Thanks.
 
 Subscribe to events at telegram channel <https://t.me/+dF46Fly4A_BjOTJl>.
 
@@ -18,7 +18,7 @@ Subscribe to events at telegram channel <https://t.me/+dF46Fly4A_BjOTJl>.
 
 | Date | Info |
 |----|----|
-| 2023-04-12 | Recording [Rust Lang Meetup - April 2023](https://www.youtube.com/live/hNponKesfiM?feature=share) |
+| 2023-04-12 | Recording [Rust Lang Meetup - April 2023](https://www.youtube.com/watch?v=hNponKesfiM&list=PL85XCvVPmGQh3V0Pz-_xFm6VAUTR4aLUw&index=19) |
 |            | Buzzcorner ([Slides](https://docs.google.com/presentation/d/1VPm9DB2aN4H-mOky9nTBmUxWhObXsk9zeSJtWd8j8Pk/edit?usp=sharing)) |
 | 2023-02-08 | Recording [Rust Lang Meetup - Febuary 2023](https://www.youtube.com/watch?v=rh1ZJXOuco8&list=PL85XCvVPmGQh3V0Pz-_xFm6VAUTR4aLUw&index=18) |
 |            | The journey to Rust from a student by Marcus Lee ([Slides](https://docs.google.com/presentation/d/1-jpPUncAZ8n4f-7ZUWZhAM2UfQpwEvq2ptSjHNdIWUw/edit#slide=id.p)) |
