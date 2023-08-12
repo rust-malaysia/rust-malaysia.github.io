@@ -18,6 +18,9 @@ Subscribe to events at telegram channel <https://t.me/+dF46Fly4A_BjOTJl>.
 
 | Date | Info |
 |----|----|
+| 2023-08-09 | Recording [Rust Lang Meetup - August 2023](https://www.youtube.com/watch?v=rQam_D9f4Sw&list=PL85XCvVPmGQh3V0Pz-_xFm6VAUTR4aLUw&index=20) |
+|            | Buzzcorner ([Slides](https://docs.google.com/presentation/d/1N5NMCfiKO-mf1KZgF7DaQQvQr9RCvdV4zoDFwJU8RAQ/edit?usp=sharing)) |
+|            | io uring - The ring of power by ZY Peh ([Slides](https://docs.google.com/presentation/d/1YnpflSnalwqEbaKK2HgsKKB1E2ONiY4dQeMEbgjdd-s/edit?usp=sharing)) |
 | 2023-04-12 | Recording [Rust Lang Meetup - April 2023](https://www.youtube.com/watch?v=hNponKesfiM&list=PL85XCvVPmGQh3V0Pz-_xFm6VAUTR4aLUw&index=19) |
 |            | Buzzcorner ([Slides](https://docs.google.com/presentation/d/1VPm9DB2aN4H-mOky9nTBmUxWhObXsk9zeSJtWd8j8Pk/edit?usp=sharing)) |
 |            | From React to Dioxus by Ivan Tham ([Slides](assets/2023/04/12/09-dioxus/slides.md)) |
