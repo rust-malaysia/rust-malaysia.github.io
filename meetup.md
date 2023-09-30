@@ -4,10 +4,9 @@ title: Meetup
 permalink: /meetup/
 ---
 
-<!-- [Register for Malaysia Rust 2023 August Meetup](https://forms.gle/eYLr35WNVknn9HLS6) -->
+[Register for Malaysia Rust 2023 August Meetup](https://forms.gle/eYLr35WNVknn9HLS6)
 
-
-No registration open.
+<!-- No registration open. -->
 
 If anyone is interested to give a talk at Rust Meetup Malaysia, please fill-up
 the form <https://forms.gle/avqfwuxPkgj4BuMS8>. Thanks.
