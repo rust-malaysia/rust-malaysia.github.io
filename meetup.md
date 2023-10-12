@@ -17,6 +17,10 @@ Subscribe to events at telegram channel <https://t.me/+dF46Fly4A_BjOTJl>.
 
 | Date | Info |
 |----|----|
+| 2023-10-11 | Recording [Rust Lang Meetup - October 2023](https://www.youtube.com/watch?v=y8NJ75sabuI&list=PL85XCvVPmGQh3V0Pz-_xFm6VAUTR4aLUw&index=21) |
+|            | Buzzcorner ([Slides](https://docs.google.com/presentation/d/1mfks65O-pxXD_IdHiIdPmMMcSKhFwtmKrrdcMwbmeHM/edit?usp=sharing)) |
+|            | Error Handling in Rust by Ivan Tham ([Slides](assets/2023/10/11/10-error/slides.md)) |
+|            | Compile Faster: Rust Optimization Tips! by Ivan Tham ([Slides](assets/2023/10/11/10-compile/slides.md)) |
 | 2023-08-09 | Recording [Rust Lang Meetup - August 2023](https://www.youtube.com/watch?v=rQam_D9f4Sw&list=PL85XCvVPmGQh3V0Pz-_xFm6VAUTR4aLUw&index=20) |
 |            | Buzzcorner ([Slides](https://docs.google.com/presentation/d/1N5NMCfiKO-mf1KZgF7DaQQvQr9RCvdV4zoDFwJU8RAQ/edit?usp=sharing)) |
 |            | io uring - The ring of power by ZY Peh ([Slides](https://docs.google.com/presentation/d/1YnpflSnalwqEbaKK2HgsKKB1E2ONiY4dQeMEbgjdd-s/edit?usp=sharing)) |
