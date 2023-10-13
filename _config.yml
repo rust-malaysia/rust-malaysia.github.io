@@ -28,6 +28,9 @@ github_username: rust-malaysia
 
 # Build settings
 theme: minima
+header_pages:
+  - about.md
+  - meetup.md
 plugins:
   - jekyll-feed
 
