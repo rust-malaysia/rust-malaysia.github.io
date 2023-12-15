@@ -18,7 +18,7 @@ Subscribe to events at telegram channel <https://t.me/+dF46Fly4A_BjOTJl>.
 | Date | Info |
 |----|----|
 | 2023-12-13 | Recording [Rust Lang Talk 中文 - December 2023](https://www.youtube.com/watch?v=rSPrZhVoMq8&list=PL85XCvVPmGQh3V0Pz-_xFm6VAUTR4aLUw&index=22) |
-|            | Rust-要用就用最安全的 ([Slides](https://github.com/jeffreylean/talks/tree/main/miters-rust-intro-talk)) |
+|            | Rust-要用就用最安全的 ([Slides](https://github.com/jeffreylean/talks/blob/main/miters-rust-intro-talk/slides.md)) |
 | 2023-10-11 | Recording [Rust Lang Meetup - October 2023](https://www.youtube.com/watch?v=y8NJ75sabuI&list=PL85XCvVPmGQh3V0Pz-_xFm6VAUTR4aLUw&index=21) |
 |            | Buzzcorner ([Slides](https://docs.google.com/presentation/d/1mfks65O-pxXD_IdHiIdPmMMcSKhFwtmKrrdcMwbmeHM/edit?usp=sharing)) |
 |            | Error Handling in Rust by Ivan Tham ([Slides](assets/2023/10/11/10-error/slides.md)) |
