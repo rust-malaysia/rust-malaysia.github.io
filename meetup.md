@@ -4,9 +4,9 @@ title: Meetup
 permalink: /meetup/
 ---
 
-<!-- [Register for Malaysia Rust 2023 August Meetup](https://forms.gle/eYLr35WNVknn9HLS6) -->
+[Register for Malaysia Rust Talk & Workshop - Parallel Programming April 2024](https://forms.gle/JgoT84iUQn4T3j29A)
 
-No registration open.
+<!-- No registration open. -->
 
 If anyone is interested to give a talk at Rust Meetup Malaysia, please fill-up
 the form <https://forms.gle/avqfwuxPkgj4BuMS8>. Thanks.
