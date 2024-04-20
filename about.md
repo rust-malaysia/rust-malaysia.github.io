@@ -27,3 +27,4 @@ Rustaceans currently known in Malaysia. Feel free to add yourselves.
 - Wai Pai Lee @ [plwai](https://github.com/plwai)
 - Zheng Yan Peh @ [zypeh](https://github.com/zypeh)
 - Hanif Ariffin @ [hbina](https://github.com/hbina)
+- Yap Jia Hong @ [AlphabetsAlphabets](https://github.com/AlphabetsAlphabets)
