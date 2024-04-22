@@ -28,3 +28,4 @@ Rustaceans currently known in Malaysia. Feel free to add yourselves.
 - Zheng Yan Peh @ [zypeh](https://github.com/zypeh)
 - Hanif Ariffin @ [hbina](https://github.com/hbina)
 - Yap Jia Hong @ [AlphabetsAlphabets](https://github.com/AlphabetsAlphabets)
+- Nixon @[nixon-voxell](https://github.com/nixon-voxell)
