@@ -4,9 +4,7 @@ title: Meetup
 permalink: /meetup/
 ---
 
-[Register for Malaysia Rust Talk & Workshop - Parallel Programming April 2024](https://forms.gle/JgoT84iUQn4T3j29A)
-
-<!-- No registration open. -->
+No registration open.
 
 If anyone is interested to give a talk at Rust Meetup Malaysia, please fill-up
 the form <https://forms.gle/avqfwuxPkgj4BuMS8>. Thanks.
@@ -17,6 +15,8 @@ Subscribe to events at telegram channel <https://t.me/+dF46Fly4A_BjOTJl>.
 
 | Date | Info |
 |----|----|
+| 2024-04-20 | (no recording) |
+|            | Parallel Programming: An Introduction by Nixon ([Slides](https://github.com/nixon-voxell/parallel_programming_tutorial/blob/main/Introduction%20to%20Parallel%20Programming.pdf)) |
 | 2023-12-13 | Recording [Rust Lang Talk 中文 - December 2023](https://www.youtube.com/watch?v=rSPrZhVoMq8&list=PL85XCvVPmGQh3V0Pz-_xFm6VAUTR4aLUw&index=22) |
 |            | Rust-要用就用最安全的 ([Slides](https://github.com/jeffreylean/talks/blob/main/miters-rust-intro-talk/slides.md)) |
 | 2023-10-11 | Recording [Rust Lang Meetup - October 2023](https://www.youtube.com/watch?v=y8NJ75sabuI&list=PL85XCvVPmGQh3V0Pz-_xFm6VAUTR4aLUw&index=21) |
