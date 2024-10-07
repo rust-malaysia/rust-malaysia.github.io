@@ -6,7 +6,7 @@ permalink: /meetup/
 
 <!-- [Register for Malaysia Rust Talk & Workshop - Parallel Programming April 2024](https://forms.gle/JgoT84iUQn4T3j29A) -->
 
-[Register](https://forms.gle/qdT7GpnNWqnKudZ38) to Rust Meetup October 2024 - Traits and how yo read trait. 
+[Register](https://forms.gle/qdT7GpnNWqnKudZ38) to Rust Meetup October 2024 - Traits and how to read trait. 
 
 If anyone is interested to give a talk at Rust Meetup Malaysia, please fill-up
 the form <https://forms.gle/avqfwuxPkgj4BuMS8>. Thanks.
