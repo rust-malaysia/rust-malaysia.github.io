@@ -15,6 +15,9 @@ Subscribe to events at telegram channel <https://t.me/+dF46Fly4A_BjOTJl>.
 
 | Date | Info |
 |----|----|
+| 2024-10-09 | Recording [Rust Lang Meetup - October 2024]() |
+|            | Buzzcorner ([Slides](https://docs.google.com/presentation/d/1WDPJrqL0GxiccQ0IwTJEWcgSPLWYh9Bv4wEgwiMHsnQ/edit?usp=sharing)) |
+|            | Traits and how to read trait constraints by Ivan Tham ([Slides](assets/2024/10/09/11-traits/slides.txt)) |
 | 2024-04-20 | (no recording) |
 |            | Parallel Programming: An Introduction by Nixon ([Slides](https://github.com/nixon-voxell/parallel_programming_tutorial/blob/main/Introduction%20to%20Parallel%20Programming.pdf)) |
 | 2023-12-13 | Recording [Rust Lang Talk 中文 - December 2023](https://www.youtube.com/watch?v=rSPrZhVoMq8&list=PL85XCvVPmGQh3V0Pz-_xFm6VAUTR4aLUw&index=22) |
