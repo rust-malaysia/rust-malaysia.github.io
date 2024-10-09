@@ -1,0 +1,1000 @@
+---
+title: Traits
+authors:
+  - Ivan Tham (pickfire)
+theme:
+  name: light
+options:
+  end_slide_shorthand: true
+---
+
+Rust Traits
+===========
+
+- below examples will be structured in story form to show why and how
+
+---
+
+Traits
+======
+
+- easier to understand in chinese as 特征, trait is less commonly used
+- part of OOP, composition over inheritance instead
+- no data, only methods (or consider contracts?)
+- integrated with the rest, unsafe/generics/lifetime/type inference
+- similar to go `interface` or python `typing.Protocol`
+
+---
+
+Traits
+======
+
+Why is traits needed?
+
+We can go with a case of John and Jane being a commentator.
+
+```rust
+struct John;
+
+struct Jane;
+```
+
+---
+
+Both of them implements the same function.
+
+```rust
+impl John {
+    fn comment(&self) -> String {
+        "awesome".to_string()
+    }
+}
+
+impl Jane {
+    fn comment(&self) -> String {
+        "fantastic".to_string()
+    }
+}
+```
+
+---
+
+When we want to have a function that uses both of them.
+
+```rust
+fn commented(comment: fn() -> String) -> String {
+    comment()
+}
+
+fn main() {
+    println!("{}", commented(John::comment));
+}
+```
+
+It prints `awesome`.
+
+---
+
+```rust
+impl John {
+    fn laugh() -> String {
+        "haha".to_string()
+    }
+}
+
+fn main() {
+    println!("{}", commented(John::laugh));
+}
+```
+
+It prints `haha`. Oops, not what we wanted. How do we restrict to `comment`?
+
+---
+
+Create and trait and use `impl Trait` method below.
+
+```rust
+trait Comment {
+    fn comment(&self) -> String;
+}
+
+impl Comment for John {  // notice the impl Comment
+    fn comment(&self) -> String {  // note that self is required for trait
+        "awesome".to_string()
+    }
+}
+
+fn commented(comment: impl Comment) -> String {  // impl Trait
+    comment.comment()
+}
+
+fn main() {
+    println!("{}", commented(John));
+}
+```
+
+---
+
+For more complex use cases, like restrict to n traits, can use trait bounds.
+
+```rust
+fn commented<T: Comment>(comment: T) -> String {
+    comment.comment()
+}
+```
+
+Or say we need to use restrict to `Comment` and `Laugh` traits.
+
+```rust
+fn commented<T: Comment + Laugh>(comment: T) -> String {
+    comment.laugh();
+    comment.comment()
+}
+```
+
+---
+
+Static dispatch vs Dynamic dispatch
+===================================
+
+Up till now, both `impl Trait` and trait bounds will do static dispatch.
+
+For each implementation, a new copy of the function will be created at compile
+time, `John` and `Jane` for each `commented` function.
+
+tl;dr don't care about the implementor as long as it have the traits
+
+```rust
+fn commented(comment: &dyn Comment) -> String {  // note a reference is taken
+    comment.comment()
+}
+
+fn main() {
+    println!("{}", commented(&John));  // note the reference
+}
+```
+
+- static dispatch when speed is needed
+- dynamic dispatch if expecting downstream users to implement the trait
+
+---
+
+How to inherit data?
+====================
+
+Coming from other languages, one might notice that data within class is not
+inherited, so how can one inherit the data?
+
+```rust
+struct Speaker {
+    commentor: Box<dyn Comment>,  // speaker composes commentor
+    // some other stuff
+}
+
+impl Comment for Speaker {
+    fn comment(&self) -> String {
+        self.commentor.comment()  // delegate to commentor
+    }
+}
+
+fn main() {
+    let speaker = Speaker { commentor: Box::new(John) };
+    println!("{}", commented(speaker));  // impl Comment
+}
+```
+
+---
+
+Default implementation
+======================
+
+Default functions for trait automatically used for all implementors.
+
+```rust
+trait Comment {
+    fn comment(&self) -> String;
+    fn hey_comment(&self) -> String {  // this can be overridden
+        format!("Hey, {}", self.comment())
+    }
+}
+
+fn commented(comment: impl Comment) -> String {
+    comment.hey_comment()
+}
+
+fn main() {
+    println!("{}", commented(John));
+}
+```
+
+This prints `Hey, awesome`.
+
+---
+
+Supertrait
+==========
+
+Sort of **inheritance** for trait.
+
+```rust
+trait Talk: Comment {}  // can add more methods inside
+
+impl Talk for John {}  // this requires Comment to be implemented first
+
+fn commented(comment: impl Talk) -> String {
+    comment.comment()
+}
+
+fn main() {
+    println!("{}", commented(John));
+}
+```
+
+---
+
+Associated Types
+================
+
+- i am lazy so just took rfc example
+- an example trait with generic
+
+```rust
+trait Graph<N, E> {
+    fn has_edge(&self, &N, &N) -> bool;
+    ...
+}
+```
+
+- but to use it, it is inconvenient to write out so many types
+
+```rust
+fn distance<N, E, G: Graph<N, E>>(
+    graph: &G, start: &N, end: &N,
+) -> uint { ... }
+```
+
+---
+
+Associated Types
+================
+
+- associated types here helps to associate the item to the trait
+- but no more generics, means the trait can only have one of these
+
+```rust
+trait Graph {
+    type N;
+    type E;
+    fn has_edge(&self, &N, &N) -> bool;
+    ...
+}
+
+// when impl just need to specify type
+```
+
+- now `N` and `E` are associated to `Graph`, more readable
+
+```rust
+fn distance<G: Graph>( // no more N, E
+    graph: &G, start: &G::N, end: &G::N,
+) -> uint { ... }
+```
+
+---
+
+Associated Types
+================
+
+- there are also defaults with `type T = String;`
+- additional generics still work in trait `Trait<T>` with associate type
+- there is also GAT (generic associated type) but not fully stabilized
+
+```rust
+trait StreamingIterator {
+    type Item<'a>; // lifetime is used here but type can be used also
+    fn next<'a>(&'a mut self) -> Option<Self::Item<'a>>;
+}
+```
+
+---
+
+Associated Type vs Generic Type
+===============================
+
+- associated types are used when there is only exact one `impl`
+
+```rust
+pub trait Iterator {
+    type Item; // Iterator can only have exactly one item type
+    ...
+}
+```
+
+- generic types are used when multiple types are needed
+
+```rust
+pub trait FromIterator<A> {
+    fn from_iter<T>(iter: T) -> Self
+    where // same as trait bounds but different syntax
+        T: IntoIterator<Item = A>;
+} // another example is Borrow which is easier
+```
+
+- note that both can be mixed, see `Add` trait for example
+
+```rust
+pub trait Add<Rhs = Self> {
+    type Output;
+    fn add(self, rhs: Rhs) -> Self::Output;
+}
+```
+
+---
+
+Trait Concerns and Results
+==========================
+
+Issues with traits and the resulting design.
+
+---
+
+Autoderef and Ambiguity
+-----------------------
+
+By default, traits are autoderefed (`Deref` trait), the types are infered.
+If two traits are in the same place, which one to resolve?
+
+```rust
+trait Pilot {
+    fn fly(&self);
+}
+
+trait Wizard {
+    fn fly(&self);
+}
+
+struct Human;
+
+impl Pilot for Human {
+    fn fly(&self) {
+        println!("This is your captain speaking.");
+    }
+}
+
+impl Wizard for Human {
+    fn fly(&self) {
+        println!("Up!");
+    }
+}
+
+impl Human {
+    fn fly(&self) {
+        println!("*waving arms furiously*");
+    }
+}
+```
+
+---
+
+Autoderef and Ambiguity
+-----------------------
+
+```rust
+fn main() {
+    let person = Human;
+    person.fly();
+}
+```
+
+Running this code prints `*waving arms furiously*`.
+
+```rust
+fn main() {
+    let person = Human;
+    Pilot::fly(&person);
+    Wizard::fly(&person);
+    person.fly();
+}
+```
+
+This will print all of them.
+
+---
+
+Autoderef and Ambiguity
+-----------------------
+
+A trait with an associated function and a type with an associated function of
+the same name that also implements the trait
+
+```rust
+trait Animal {
+    fn baby_name() -> String;
+}
+
+struct Dog;
+
+impl Dog {
+    fn baby_name() -> String {
+        String::from("Spot")
+    }
+}
+
+impl Animal for Dog {
+    fn baby_name() -> String {
+        String::from("puppy")
+    }
+}
+
+fn main() {
+    println!("A baby dog is called a {}", Dog::baby_name());
+}
+```
+
+---
+
+Autoderef and Ambiguity
+-----------------------
+
+The error shows that rust does not know which trait to use:
+
+```rust
+$ cargo run
+   Compiling traits-example v0.1.0 (file:///projects/traits-example)
+error[E0790]: cannot call associated function on trait without specifying the corresponding `impl` type
+  --> src/main.rs:20:43
+   |
+2  |     fn baby_name() -> String;
+   |     ------------------------- `Animal::baby_name` defined here
+...
+20 |     println!("A baby dog is called a {}", Animal::baby_name());
+   |                                           ^^^^^^^^^^^^^^^^^^^ cannot call associated function of trait
+   |
+help: use the fully-qualified path to the only available implementation
+   |
+20 |     println!("A baby dog is called a {}", <Dog as Animal>::baby_name());
+   |                                           +++++++       +
+
+For more information about this error, try `rustc --explain E0790`.
+error: could not compile `traits-example` (bin "traits-example") due to 1 previous error
+```
+
+---
+
+```
+                          ``:::::''
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+```
+
+---
+
+```
+                      ``::::||||||||:''
+                          ``:::::''
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+```
+
+---
+
+```
+                     :::::::::::::||||::'
+                      ``::::||||||||:''
+                          ``:::::''
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+```
+
+---
+
+```
+                    ::...       ..::||||:'
+                     :::::::::::::||||::'
+                      ``::::||||||||:''
+                          ``:::::''
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+```
+
+---
+
+```
+                   ..              .::|||:'
+                    ::...       ..::||||:'
+                     :::::::::::::||||::'
+                      ``::::||||||||:''
+                          ``:::::''
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+```
+
+---
+
+```
+                             ~~~     ::|||:
+                   ..              .::|||:'
+                    ::...       ..::||||:'
+                     :::::::::::::||||::'
+                      ``::::||||||||:''
+                          ``:::::''
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+```
+
+---
+
+```
+                  .        `.   .'   ,::||:
+                             ~~~     ::|||:
+                   ..              .::|||:'
+                    ::...       ..::||||:'
+                     :::::::::::::||||::'
+                      ``::::||||||||:''
+                          ``:::::''
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+```
+
+---
+
+```
+                           |     |    ::|::
+                  .        `.   .'   ,::||:
+                             ~~~     ::|||:
+                   ..              .::|||:'
+                    ::...       ..::||||:'
+                     :::::::::::::||||::'
+                      ``::::||||||||:''
+                          ``:::::''
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+```
+
+---
+
+```
+                   .       |     |    ::::
+                           |     |    ::|::
+                  .        `.   .'   ,::||:
+                             ~~~     ::|||:
+                   ..              .::|||:'
+                    ::...       ..::||||:'
+                     :::::::::::::||||::'
+                      ``::::||||||||:''
+                          ``:::::''
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+```
+
+---
+
+```
+                           |     |   `:::
+                   .       |     |    ::::
+                           |     |    ::|::
+                  .        `.   .'   ,::||:
+                             ~~~     ::|||:
+                   ..              .::|||:'
+                    ::...       ..::||||:'
+                     :::::::::::::||||::'
+                      ``::::||||||||:''
+                          ``:::::''
+            
+            
+            
+            
+            
+            
+            
+            
+            
+```
+
+---
+
+```
+                     .     |     | `:::.
+                           |     |   `:::
+                   .       |     |    ::::
+                           |     |    ::|::
+                  .        `.   .'   ,::||:
+                             ~~~     ::|||:
+                   ..              .::|||:'
+                    ::...       ..::||||:'
+                     :::::::::::::||||::'
+                      ``::::||||||||:''
+                          ``:::::''
+            
+            
+            
+            
+            
+            
+            
+            
+```
+
+---
+
+```
+                        . `|     |':..
+                     .     |     | `:::.
+                           |     |   `:::
+                   .       |     |    ::::
+                           |     |    ::|::
+                  .        `.   .'   ,::||:
+                             ~~~     ::|||:
+                   ..              .::|||:'
+                    ::...       ..::||||:'
+                     :::::::::::::||||::'
+                      ``::::||||||||:''
+                          ``:::::''
+            
+            
+            
+            
+            
+            
+            
+```
+
+---
+
+```
+                           _ ~~~ _
+                        . `|     |':..
+                     .     |     | `:::.
+                           |     |   `:::
+                   .       |     |    ::::
+                           |     |    ::|::
+                  .        `.   .'   ,::||:
+                             ~~~     ::|||:
+                   ..              .::|||:'
+                    ::...       ..::||||:'
+                     :::::::::::::||||::'
+                      ``::::||||||||:''
+                          ``:::::''
+            
+            
+            
+            
+            
+            
+```
+
+---
+
+```
+                           `...::'
+                           _ ~~~ _
+                        . `|     |':..
+                     .     |     | `:::.
+                           |     |   `:::
+                   .       |     |    ::::
+                           |     |    ::|::
+                  .        `.   .'   ,::||:
+                             ~~~     ::|||:
+                   ..              .::|||:'
+                    ::...       ..::||||:'
+                     :::::::::::::||||::'
+                      ``::::||||||||:''
+                          ``:::::''
+            
+            
+            
+            
+            
+```
+
+---
+
+```
+                           |   .:|
+                           `...::'
+                           _ ~~~ _
+                        . `|     |':..
+                     .     |     | `:::.
+                           |     |   `:::
+                   .       |     |    ::::
+                           |     |    ::|::
+                  .        `.   .'   ,::||:
+                             ~~~     ::|||:
+                   ..              .::|||:'
+                    ::...       ..::||||:'
+                     :::::::::::::||||::'
+                      ``::::||||||||:''
+                          ``:::::''
+            
+            
+            
+            
+```
+
+
+---
+
+```
+                           |    :|
+                           |   .:|
+                           `...::'
+                           _ ~~~ _
+                        . `|     |':..
+                     .     |     | `:::.
+                           |     |   `:::
+                   .       |     |    ::::
+                           |     |    ::|::
+                  .        `.   .'   ,::||:
+                             ~~~     ::|||:
+                   ..              .::|||:'
+                    ::...       ..::||||:'
+                     :::::::::::::||||::'
+                      ``::::||||||||:''
+                          ``:::::''
+            
+            
+            
+```
+
+---
+
+```
+                           |    :|
+                           |    :|
+                           |   .:|
+                           `...::'
+                           _ ~~~ _
+                        . `|     |':..
+                     .     |     | `:::.
+                           |     |   `:::
+                   .       |     |    ::::
+                           |     |    ::|::
+                  .        `.   .'   ,::||:
+                             ~~~     ::|||:
+                   ..              .::|||:'
+                    ::...       ..::||||:'
+                     :::::::::::::||||::'
+                      ``::::||||||||:''
+                          ``:::::''
+            
+            
+```
+
+---
+
+```
+                           |    :|
+                           |    :|
+                           |    :|
+                           |   .:|
+                           `...::'
+                           _ ~~~ _
+                        . `|     |':..
+                     .     |     | `:::.
+                           |     |   `:::
+                   .       |     |    ::::
+                           |     |    ::|::
+                  .        `.   .'   ,::||:
+                             ~~~     ::|||:
+                   ..              .::|||:'
+                    ::...       ..::||||:'
+                     :::::::::::::||||::'
+                      ``::::||||||||:''
+                          ``:::::''
+ 
+```
+
+---
+
+
+```
+                           |    :|
+                           |    :|
+                           |    :|
+                           |    :|
+                           |   .:|
+                           `...::'
+                           _ ~~~ _
+                        . `|     |':..
+                     .     |     | `:::.
+                           |     |   `:::
+                   .       |     |    ::::
+                           |     |    ::|::
+                  .        `.   .'   ,::||:
+                             ~~~     ::|||:
+                   ..              .::|||:'
+                    ::...       ..::||||:'
+                     :::::::::::::||||::'
+                      ``::::||||||||:''
+                          ``:::::''
+```
+
+---
+
+```
+                            _____
+                           |    :|
+                           |    :|
+                           |    :|
+                           |    :|
+                           |   .:|
+                           `...::'
+                           _ ~~~ _
+                        . `|     |':..
+                     .     |     | `:::.
+                           |     |   `:::
+                   .       |     |    ::::
+                           |     |    ::|::
+                  .        `.   .'   ,::||:
+                             ~~~     ::|||:
+                   ..              .::|||:'
+                    ::...       ..::||||:'
+                     :::::::::::::||||::'
+                      ``::::||||||||:''
+```
+
+---
+
+```
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                             ____
+                     __,-~~/~    `---.
+                   _/_,---(      ,    )
+               __ /        <    /   )  \___
+- ------===;;;'====------------------===;;;===----- -  -
+                  \/  ~"~"~"~"~"~\~"~)~"/
+                  (_ (   \  (     >    \)
+                   \_( _ <         >_>'
+                      ~ `-i' ::>|--"
+                          I;|.|.|
+                         <|i::|i|`.
+                        (` ^'"`-' ")
+```
+
+---
+
+> **お前はもう死んでいる。**
+>
+
+---
+
+> **お前はもう死んでいる。**
+> (You are already dead.)
+
+<!-- pause -->
+
+> **何？**
+> (What?)
+
+---
+
+Autoderef and Ambiguity
+-----------------------
+
+To solve it, use fully qualified syntax with `<Type as Trait>::function`
+
+```rust
+fn main() {
+    println!("A baby dog is called a {}", <Dog as Animal>::baby_name());
+}
+```
+
+---
+
+Q&A
+===
