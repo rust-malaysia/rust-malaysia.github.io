@@ -29,3 +29,7 @@ Rustaceans currently known in Malaysia. Feel free to add yourselves.
 - Hanif Ariffin @ [hbina](https://github.com/hbina)
 - Yap Jia Hong @ [AlphabetsAlphabets](https://github.com/AlphabetsAlphabets)
 - Nixon @[nixon-voxell](https://github.com/nixon-voxell)
+
+Partners:
+
+![RUSTAsia](images/RUSTAsia-logo-light-theme.png)
