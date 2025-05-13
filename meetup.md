@@ -4,7 +4,7 @@ title: Meetup
 permalink: /meetup/
 ---
 
-<!-- [Register for Malaysia Rust Talk & Workshop - Parallel Programming April 2024](https://forms.gle/JgoT84iUQn4T3j29A) -->
+[Register for Rust Malaysia Workshop - Gentle introduction to GameDev with Bevy June 2025](https://forms.gle/J8c1DfdpQbxCEvne8)
 
 If anyone is interested to give a talk at Rust Meetup Malaysia, please fill-up
 the form <https://forms.gle/avqfwuxPkgj4BuMS8>. Thanks.
