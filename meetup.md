@@ -15,12 +15,11 @@ Subscribe to events at telegram channel <https://t.me/+dF46Fly4A_BjOTJl>.
 
 | Date | Info |
 |----|----|
-| 2025-07-14 | Backend Webdev with axum and Diesel ([source](https://github.com/ian-hon/axum-diesel-example))
-|            | Slides ([slides](https://raw.githubusercontent.com/ian-hon/axum-diesel-example/main/slides.pdf))
-|            | Recording ([recording](https://www.youtube.com/live/jXcLV7CKgLE?si=3dPT6BzZQQDqe08y ))
-| 2025-06-14 | Bevy Workshop Meetup ([source](https://github.com/rust-malaysia/bevy_workshop)) |
-|            | Buzzcorner ([slides](https://docs.google.com/presentation/d/18A8oOJyP9EWDa7zVNSwXmvYzKXGt1kGT7cLU0jJH7GQ/edit?slide=id.g6426518c55_0_0#slide=id.g6426518c55_0_0))
-| 2024-10-09 | Recording [Rust Lang Meetup - October 2024]() |
+| 2025-07-14 | Backend Webdev with axum and Diesel ([Slides](https://raw.githubusercontent.com/ian-hon/axum-diesel-example/main/slides.pdf)) ([Source](https://github.com/ian-hon/axum-diesel-example)) |
+|            | Recording [Rust Lang Meetup - September 2025](https://www.youtube.com/live/jXcLV7CKgLE?si=3dPT6BzZQQDqe08y) |
+| 2025-06-14 | Bevy Workshop Meetup ([Source](https://github.com/rust-malaysia/bevy_workshop)) |
+|            | Buzzcorner ([Slides](https://docs.google.com/presentation/d/18A8oOJyP9EWDa7zVNSwXmvYzKXGt1kGT7cLU0jJH7GQ/edit?slide=id.g6426518c55_0_0#slide=id.g6426518c55_0_0))
+| 2024-10-09 | (no recording) |
 |            | Buzzcorner ([Slides](https://docs.google.com/presentation/d/1WDPJrqL0GxiccQ0IwTJEWcgSPLWYh9Bv4wEgwiMHsnQ/edit?usp=sharing)) |
 |            | Traits and how to read trait constraints by Ivan Tham ([Slides](assets/2024/10/09/11-traits/slides.txt)) |
 | 2024-04-20 | (no recording) |
