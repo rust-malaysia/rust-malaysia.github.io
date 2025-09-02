@@ -15,10 +15,10 @@ Subscribe to events at telegram channel <https://t.me/+dF46Fly4A_BjOTJl>.
 
 | Date | Info |
 |----|----|
-| 2025-07-14 | (Backend Webdev with axum and Diesel)([source](https://github.com/ian-hon/axum-diesel-example))
+| 2025-07-14 | Backend Webdev with axum and Diesel ([source](https://github.com/ian-hon/axum-diesel-example))
 |            | Slides ([slides](https://raw.githubusercontent.com/ian-hon/axum-diesel-example/main/slides.pdf))
 |            | Recording ([recording](https://www.youtube.com/live/jXcLV7CKgLE?si=3dPT6BzZQQDqe08y ))
-| 2025-06-14 | (Bevy Workshop Meetup)([source](https://github.com/rust-malaysia/bevy_workshop)) |
+| 2025-06-14 | Bevy Workshop Meetup ([source](https://github.com/rust-malaysia/bevy_workshop)) |
 |            | Buzzcorner ([slides](https://docs.google.com/presentation/d/18A8oOJyP9EWDa7zVNSwXmvYzKXGt1kGT7cLU0jJH7GQ/edit?slide=id.g6426518c55_0_0#slide=id.g6426518c55_0_0))
 | 2024-10-09 | Recording [Rust Lang Meetup - October 2024]() |
 |            | Buzzcorner ([Slides](https://docs.google.com/presentation/d/1WDPJrqL0GxiccQ0IwTJEWcgSPLWYh9Bv4wEgwiMHsnQ/edit?usp=sharing)) |
