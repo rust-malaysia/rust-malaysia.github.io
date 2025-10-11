@@ -4,7 +4,7 @@ title: Meetup
 permalink: /meetup/
 ---
 
-[Register for Rust Malaysia Workshop - Gentle introduction to GameDev with Bevy June 2025](https://forms.gle/J8c1DfdpQbxCEvne8)
+<!-- [Register for Rust Malaysia Workshop - Gentle introduction to GameDev with Bevy June 2025](https://forms.gle/J8c1DfdpQbxCEvne8) -->
 
 If anyone is interested to give a talk at Rust Meetup Malaysia, please fill-up
 the form <https://forms.gle/avqfwuxPkgj4BuMS8>. Thanks.
@@ -15,6 +15,9 @@ Subscribe to events at telegram channel <https://t.me/+dF46Fly4A_BjOTJl>.
 
 | Date | Info |
 |----|----|
+| 2025-10-08 | Recording [Rust Lang Meetup - Octobus 2025]() |
+|            | Temporal by Michael Leow ([Slides]()) |
+|            | Making Rust more accessible to everyone by Ivan Tham ([Slides]()) |
 | 2025-08-21 | Recording [Rust Lang Meetup - August 2025](https://www.youtube.com/watch?v=jXcLV7CKgLE&list=PL85XCvVPmGQh3V0Pz-_xFm6VAUTR4aLUw&index=24) |
 |            | Backend Webdev with Axum and Diesel by Ian Hon ([Slides](https://raw.githubusercontent.com/ian-hon/axum-diesel-example/main/slides.pdf)) ([Source](https://github.com/ian-hon/axum-diesel-example)) |
 | 2025-06-14 | Bevy Workshop Meetup ([Source](https://github.com/rust-malaysia/bevy_workshop)) |
