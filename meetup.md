@@ -15,7 +15,7 @@ Subscribe to events at telegram channel <https://t.me/+dF46Fly4A_BjOTJl>.
 
 | Date | Info |
 |----|----|
-| 2025-10-08 | Recording [Rust Lang Meetup - Octobus 2025]() |
+| 2025-10-08 | Recording [Rust Lang Meetup - Octobus 2025](https://www.youtube.com/watch?v=OvFmwfBpFfI&list=PL85XCvVPmGQh3V0Pz-_xFm6VAUTR4aLUw&index=26) |
 |            | Temporal by Michael Leow ([Slides]()) |
 |            | Making Rust more accessible to everyone by Ivan Tham ([Slides]()) |
 | 2025-08-21 | Recording [Rust Lang Meetup - August 2025](https://www.youtube.com/watch?v=jXcLV7CKgLE&list=PL85XCvVPmGQh3V0Pz-_xFm6VAUTR4aLUw&index=24) |
