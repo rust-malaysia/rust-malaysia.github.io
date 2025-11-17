@@ -16,8 +16,8 @@ Subscribe to events at telegram channel <https://t.me/+dF46Fly4A_BjOTJl>.
 | Date | Info |
 |----|----|
 | 2025-10-08 | Recording [Rust Lang Meetup - Octobus 2025](https://www.youtube.com/watch?v=OvFmwfBpFfI&list=PL85XCvVPmGQh3V0Pz-_xFm6VAUTR4aLUw&index=26) |
-|            | Temporal by Michael Leow ([Slides]()) |
-|            | Making Rust more accessible to everyone by Ivan Tham ([Slides]()) |
+|            | Temporal by Michael Leow ([Slides](assets/2025/10/08/01-temporal/Final - Temporal Intro - Rust UG Oct2025.pdf)) |
+|            | Making Rust more accessible to everyone by Ivan Tham ([Slides](assets/2025/10/08/12-everyone/slide.txt)) |
 | 2025-08-21 | Recording [Rust Lang Meetup - August 2025](https://www.youtube.com/watch?v=jXcLV7CKgLE&list=PL85XCvVPmGQh3V0Pz-_xFm6VAUTR4aLUw&index=24) |
 |            | Backend Webdev with Axum and Diesel by Ian Hon ([Slides](https://raw.githubusercontent.com/ian-hon/axum-diesel-example/main/slides.pdf)) ([Source](https://github.com/ian-hon/axum-diesel-example)) |
 | 2025-06-14 | Bevy Workshop Meetup ([Source](https://github.com/rust-malaysia/bevy_workshop)) |
