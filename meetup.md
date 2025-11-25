@@ -4,7 +4,7 @@ title: Meetup
 permalink: /meetup/
 ---
 
-<!-- [Register for Rust Malaysia Workshop - Gentle introduction to GameDev with Bevy June 2025](https://forms.gle/J8c1DfdpQbxCEvne8) -->
+[Register for Rust Malaysia YEH 2025](https://forms.gle/97jqPeGvpUjMXA8x9)
 
 If anyone is interested to give a talk at Rust Meetup Malaysia, please fill-up
 the form <https://forms.gle/avqfwuxPkgj4BuMS8>. Thanks.
