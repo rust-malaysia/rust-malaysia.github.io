@@ -4,7 +4,7 @@ title: Meetup
 permalink: /meetup/
 ---
 
-[Register for Rust Malaysia YEH 2025](https://forms.gle/97jqPeGvpUjMXA8x9)
+[Register for Rust Meetup Febuary 2026](https://forms.gle/M3JgaEakxuTYMS72A)
 
 If anyone is interested to give a talk at Rust Meetup Malaysia, please fill-up
 the form <https://forms.gle/avqfwuxPkgj4BuMS8>. Thanks.
@@ -15,6 +15,8 @@ Subscribe to events at telegram channel <https://t.me/+dF46Fly4A_BjOTJl>.
 
 | Date | Info |
 |----|----|
+| 2026-02-11 | |
+| 2025-12-13 | Rust Hack Session - Advent of Code 2025 |
 | 2025-10-08 | Recording [Rust Lang Meetup - Octobus 2025](https://www.youtube.com/watch?v=OvFmwfBpFfI&list=PL85XCvVPmGQh3V0Pz-_xFm6VAUTR4aLUw&index=26) |
 |            | Temporal by Michael Leow ([Slides](assets/2025/10/08/01-temporal/Final - Temporal Intro - Rust UG Oct2025.pdf)) |
 |            | Making Rust more accessible to everyone by Ivan Tham ([Slides](assets/2025/10/08/12-everyone/slide.txt)) |
