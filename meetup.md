@@ -17,47 +17,47 @@ Subscribe to events at telegram channel <https://t.me/+dF46Fly4A_BjOTJl>.
 |----|----|
 | 2026-02-11 | Recording [Rust Lang Meetup - Febuary 2026](https://www.youtube.com/watch?v=JylA5W18PrE&list=PL85XCvVPmGQh3V0Pz-_xFm6VAUTR4aLUw&index=25) |
 |            | Building Collaborative Apps with Rust by Parsa ([Slides](https://slides.com/parsashamaeezadeh/deck/fullscreen)) ([Code](https://github.com/parsadotsh/rusty-collab)) ([Demo](https://youtu.be/zIOoHvcGvfQ)) |
-|            | Async IO, Completed by George Miao (online) ([Slides](assets/2026/02/11/02-compio/presentation.pdf)) |
+|            | Async IO, Completed by George Miao (online) ([Slides](/assets/2026/02/11/02-compio/presentation.pdf)) |
 | 2025-12-13 | Rust Hack Session - Advent of Code 2025 |
 | 2025-10-08 | Recording [Rust Lang Meetup - Octobus 2025](https://www.youtube.com/watch?v=OvFmwfBpFfI&list=PL85XCvVPmGQh3V0Pz-_xFm6VAUTR4aLUw&index=26) |
-|            | Temporal by Michael Leow ([Slides](assets/2025/10/08/01-temporal/Final - Temporal Intro - Rust UG Oct2025.pdf)) |
-|            | Making Rust more accessible to everyone by Ivan Tham ([Slides](assets/2025/10/08/12-everyone/slide.txt)) |
+|            | Temporal by Michael Leow ([Slides](/assets/2025/10/08/01-temporal/Final - Temporal Intro - Rust UG Oct2025.pdf)) |
+|            | Making Rust more accessible to everyone by Ivan Tham ([Slides](/assets/2025/10/08/12-everyone/slide.txt)) |
 | 2025-08-21 | Recording [Rust Lang Meetup - August 2025](https://www.youtube.com/watch?v=jXcLV7CKgLE&list=PL85XCvVPmGQh3V0Pz-_xFm6VAUTR4aLUw&index=24) |
 |            | Backend Webdev with Axum and Diesel by Ian Hon ([Slides](https://raw.githubusercontent.com/ian-hon/axum-diesel-example/main/slides.pdf)) ([Source](https://github.com/ian-hon/axum-diesel-example)) |
 | 2025-06-14 | Bevy Workshop Meetup ([Source](https://github.com/rust-malaysia/bevy_workshop)) |
 |            | Buzzcorner ([Slides](https://docs.google.com/presentation/d/18A8oOJyP9EWDa7zVNSwXmvYzKXGt1kGT7cLU0jJH7GQ/edit?slide=id.g6426518c55_0_0#slide=id.g6426518c55_0_0))
 | 2024-10-09 | (no recording) |
 |            | Buzzcorner ([Slides](https://docs.google.com/presentation/d/1WDPJrqL0GxiccQ0IwTJEWcgSPLWYh9Bv4wEgwiMHsnQ/edit?usp=sharing)) |
-|            | Traits and how to read trait constraints by Ivan Tham ([Slides](assets/2024/10/09/11-traits/slides.txt)) |
+|            | Traits and how to read trait constraints by Ivan Tham ([Slides](/assets/2024/10/09/11-traits/slides.txt)) |
 | 2024-04-20 | (no recording) |
 |            | Parallel Programming: An Introduction by Nixon ([Slides](https://github.com/nixon-voxell/parallel_programming_tutorial/blob/main/Introduction%20to%20Parallel%20Programming.pdf)) |
 | 2023-12-13 | Recording [Rust Lang Talk 中文 - December 2023](https://www.youtube.com/watch?v=rSPrZhVoMq8&list=PL85XCvVPmGQh3V0Pz-_xFm6VAUTR4aLUw&index=22) |
 |            | Rust-要用就用最安全的 ([Slides](https://github.com/jeffreylean/talks/blob/main/miters-rust-intro-talk/slides.md)) |
 | 2023-10-11 | Recording [Rust Lang Meetup - October 2023](https://www.youtube.com/watch?v=y8NJ75sabuI&list=PL85XCvVPmGQh3V0Pz-_xFm6VAUTR4aLUw&index=21) |
 |            | Buzzcorner ([Slides](https://docs.google.com/presentation/d/1mfks65O-pxXD_IdHiIdPmMMcSKhFwtmKrrdcMwbmeHM/edit?usp=sharing)) |
-|            | Error Handling in Rust by Ivan Tham ([Slides](assets/2023/10/11/10-error/slides.md)) |
-|            | Compile Faster: Rust Optimization Tips! by Ivan Tham ([Slides](assets/2023/10/11/10-compile/slides.md)) |
+|            | Error Handling in Rust by Ivan Tham ([Slides](/assets/2023/10/11/10-error/slides.md)) |
+|            | Compile Faster: Rust Optimization Tips! by Ivan Tham ([Slides](/assets/2023/10/11/10-compile/slides.md)) |
 | 2023-08-09 | Recording [Rust Lang Meetup - August 2023](https://www.youtube.com/watch?v=rQam_D9f4Sw&list=PL85XCvVPmGQh3V0Pz-_xFm6VAUTR4aLUw&index=20) |
 |            | Buzzcorner ([Slides](https://docs.google.com/presentation/d/1N5NMCfiKO-mf1KZgF7DaQQvQr9RCvdV4zoDFwJU8RAQ/edit?usp=sharing)) |
 |            | io uring - The ring of power by ZY Peh ([Slides](https://docs.google.com/presentation/d/1YnpflSnalwqEbaKK2HgsKKB1E2ONiY4dQeMEbgjdd-s/edit?usp=sharing)) |
 | 2023-04-12 | Recording [Rust Lang Meetup - April 2023](https://www.youtube.com/watch?v=hNponKesfiM&list=PL85XCvVPmGQh3V0Pz-_xFm6VAUTR4aLUw&index=19) |
 |            | Buzzcorner ([Slides](https://docs.google.com/presentation/d/1VPm9DB2aN4H-mOky9nTBmUxWhObXsk9zeSJtWd8j8Pk/edit?usp=sharing)) |
-|            | From React to Dioxus by Ivan Tham ([Slides](assets/2023/04/12/09-dioxus/slides.md)) |
+|            | From React to Dioxus by Ivan Tham ([Slides](/assets/2023/04/12/09-dioxus/slides.md)) |
 | 2023-02-08 | Recording [Rust Lang Meetup - Febuary 2023](https://www.youtube.com/watch?v=rh1ZJXOuco8&list=PL85XCvVPmGQh3V0Pz-_xFm6VAUTR4aLUw&index=18) |
 |            | The journey to Rust from a student by Marcus Lee ([Slides](https://docs.google.com/presentation/d/1-jpPUncAZ8n4f-7ZUWZhAM2UfQpwEvq2ptSjHNdIWUw/edit#slide=id.p)) |
 | 2022-11-09 | Recording [Rust Lang Meetup - November 2022](https://www.youtube.com/watch?v=Ht4jONi_yO8&list=PLN1peJcgmEZP1P3nLPTShIefVT1rbWODy&index=17) |
-|            | Knots by Scott Steele ([Slides](assets/2022/11/1-knots/2022-11-09_Rust_Malaysia_knot-so-good.pdf)) ([Code](https://github.com/scooter-dangle/knotty/tree/main/examples/knot-so-good)) |
+|            | Knots by Scott Steele ([Slides](/assets/2022/11/1-knots/2022-11-09_Rust_Malaysia_knot-so-good.pdf)) ([Code](https://github.com/scooter-dangle/knotty/tree/main/examples/knot-so-good)) |
 |            | Golang & Rust in Blockchain by Chee Chyuan ([Slides](https://docs.google.com/presentation/d/1CSbVpfYJCZTpSYiByezi6-_dGDlp_RIInzQUBpcXMng/edit?usp=sharing)) |
-|            | Microcontroller Unit - MCU by Raj ([Slides](assets/2022/11/3-embedded/MCU_RAJ.pdf)) |
+|            | Microcontroller Unit - MCU by Raj ([Slides](/assets/2022/11/3-embedded/MCU_RAJ.pdf)) |
 |            | Rust & Flutter by Allen Wyma |
 | 2022-09-14 | Recording [Rust Lang Meetup - September 2022](https://www.youtube.com/watch?v=4FfZsONwprk&list=PL85XCvVPmGQh3V0Pz-_xFm6VAUTR4aLUw&index=16) |
 |            | Rust WASM UI by Chong Thien Pow (thienpow) ([Slides](https://docs.google.com/presentation/d/1iQ966OhCyff-hLhJ90spt4IRctXGx0-ZTnSTQlvxvRQ/edit#slide=id.p)) |
 | 2022-05-11 | Recording [Rust Lang Meetup - May 2022](https://www.youtube.com/watch?v=m4aK985lXOg&list=PL85XCvVPmGQh3V0Pz-_xFm6VAUTR4aLUw&index=15) |
 |            | Writing Web Services with Rust + Axum by Hanif Bin Ariffin ([Slide](https://docs.google.com/presentation/d/16XbOxqQghnQmu3Nta5ci8weza_vAiGdZo0AXeuy7mkA/edit?usp=sharing)) |
 | 2022-03-09 | Recording [Rust Lang Meetup - March 2022](https://www.youtube.com/watch?v=iHl7DhLBRow&list=PL85XCvVPmGQh3V0Pz-_xFm6VAUTR4aLUw&index=15) |
-|            | Traits by Ivan Tham ([Slide](assets/2022/03/09/1-traits/slide.txt)) |
+|            | Traits by Ivan Tham ([Slide](/assets/2022/03/09/1-traits/slide.txt)) |
 | 2022-01-12 | Recording [Rust Lang Meetup - January 2022](https://www.youtube.com/watch?v=orh02-RucPo&list=PL85XCvVPmGQh3V0Pz-_xFm6VAUTR4aLUw&index=13) |
-|            | 3 Rust Myth - regarding error handling library, mutability and unsafe by Ivan Tham ([Slide](assets/2022/01/12/1-myth/slide.txt)) |
+|            | 3 Rust Myth - regarding error handling library, mutability and unsafe by Ivan Tham ([Slide](/assets/2022/01/12/1-myth/slide.txt)) |
 | 2021-11-10 | Recording [Rust Lang Meetup - November 2021](https://www.youtube.com/watch?v=9oOEAGFTNdE&list=PL85XCvVPmGQh3V0Pz-_xFm6VAUTR4aLUw&index=13) |
 |            | Rust from a C/C++ perspective (more of a discussion) by Shawn Tan (sybreon) |
 | 2021-07-14 | Recording [Rust Lang Meetup - July 2021](https://www.youtube.com/watch?v=kJD-cJY2nb4&list=PL85XCvVPmGQh3V0Pz-_xFm6VAUTR4aLUw&index=11) |
