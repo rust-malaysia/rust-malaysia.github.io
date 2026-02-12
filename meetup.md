@@ -16,8 +16,8 @@ Subscribe to events at telegram channel <https://t.me/+dF46Fly4A_BjOTJl>.
 | Date | Info |
 |----|----|
 | 2026-02-11 | Recording [Rust Lang Meetup - Febuary 2026](https://www.youtube.com/watch?v=JylA5W18PrE&list=PL85XCvVPmGQh3V0Pz-_xFm6VAUTR4aLUw&index=25) |
-|            | Building Collaborative Apps with Rust by Parsa ([Slides](https://slides.com/parsashamaeezadeh/deck)) |
-|            | Async IO, Completed by George Miao (online) ([Slides](assets/2026/02/11/02-compio/presentation.pdf)) |
+|            | Building Collaborative Apps with Rust by Parsa ([Slides](https://slides.com/parsashamaeezadeh/deck/fullscreen)) ([Code](https://github.com/parsadotsh/rusty-collab)) ([Demo](https://youtu.be/zIOoHvcGvfQ)) |
+|            | Async IO, Completed by George Miao (online) ([Slides](assets/2026/02/11/02-compio/presentation.pdf)) ( |
 | 2025-12-13 | Rust Hack Session - Advent of Code 2025 |
 | 2025-10-08 | Recording [Rust Lang Meetup - Octobus 2025](https://www.youtube.com/watch?v=OvFmwfBpFfI&list=PL85XCvVPmGQh3V0Pz-_xFm6VAUTR4aLUw&index=26) |
 |            | Temporal by Michael Leow ([Slides](assets/2025/10/08/01-temporal/Final - Temporal Intro - Rust UG Oct2025.pdf)) |
@@ -92,4 +92,4 @@ Subscribe to events at telegram channel <https://t.me/+dF46Fly4A_BjOTJl>.
 |            | Reused slides [RustConf 2018 keynote](https://rust-lang.github.io/rustconf-2018-keynote/#1) by Ivan Tham |
 |            | Reused slides [No Spaghetti](https://docs.google.com/presentation/d/1ov5957xmm8s9V2F32AgXbaaQL0nCPai58PavU6jn0jA/edit#slide=id.p) by Ivan Tham |
 
-Edit this page at https://github.com/rust-malaysia/rust-malaysia.github.io/blob/master/meetup.md
+Edit this page at <https://github.com/rust-malaysia/rust-malaysia.github.io/blob/master/meetup.md>
