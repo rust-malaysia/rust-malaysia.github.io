@@ -4,7 +4,7 @@ title: Meetup
 permalink: /meetup/
 ---
 
-<!-- [Register for Rust Meetup Febuary 2026](https://forms.gle/M3JgaEakxuTYMS72A) -->
+[Register for Rust Meetup August 2026](https://forms.gle/hUPPBHEReEGx9oQd7)
 
 If anyone is interested to give a talk at Rust Meetup Malaysia, please fill-up
 the form <https://forms.gle/avqfwuxPkgj4BuMS8>. Thanks.
