@@ -15,6 +15,8 @@ Subscribe to events at telegram channel <https://t.me/+dF46Fly4A_BjOTJl>.
 
 | Date | Info |
 |----|----|
+| 2026-05-13 | Recording [Rust Lang Meetup - May 2026](https://www.youtube.com/watch?v=ek-MnI4kEjU) |
+|            | gdext: Using Rust for Games in Godot ([Slides](/assets/2026/05/13/03-rust-in-godot/rustmeetup2.pdf)) |
 | 2026-02-11 | Recording [Rust Lang Meetup - Febuary 2026](https://www.youtube.com/watch?v=JylA5W18PrE&list=PL85XCvVPmGQh3V0Pz-_xFm6VAUTR4aLUw&index=25) |
 |            | Building Collaborative Apps with Rust by Parsa ([Slides](https://slides.com/parsashamaeezadeh/deck/fullscreen)) ([Code](https://github.com/parsadotsh/rusty-collab)) ([Demo](https://youtu.be/zIOoHvcGvfQ)) |
 |            | Async IO, Completed by George Miao (online) ([Slides](/assets/2026/02/11/02-compio/presentation.pdf)) |
