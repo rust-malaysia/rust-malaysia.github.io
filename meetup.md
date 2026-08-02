@@ -17,7 +17,7 @@ Subscribe to events at telegram channel <https://t.me/+dF46Fly4A_BjOTJl>.
 |----|----|
 | 2026-05-13 | Recording [Rust Lang Meetup - May 2026](https://www.youtube.com/live/ek-MnI4kEjU?si=8FdyUqvEz46bPyM5) |
 |            | gdext: Using Rust for Games in Godot by Choko ([Slides](/assets/2026/05/13/03-rust-in-godot/rustmeetup2.pdf)) |
-|            | Use AI in Rust, without producing garbage code by Farhan Syah |
+|            | Use AI in Rust, without producing garbage code by Farhan Syah ([Slides](/assets/2026/05/13/04-ai-in-rust/How_to_Actually_Use_AI_in_Rust_Without_Producing_Garbage_Code_by.pdf)) |
 | 2026-02-11 | Recording [Rust Lang Meetup - Febuary 2026](https://www.youtube.com/watch?v=JylA5W18PrE&list=PL85XCvVPmGQh3V0Pz-_xFm6VAUTR4aLUw&index=25) |
 |            | Building Collaborative Apps with Rust by Parsa ([Slides](https://slides.com/parsashamaeezadeh/deck/fullscreen)) ([Code](https://github.com/parsadotsh/rusty-collab)) ([Demo](https://youtu.be/zIOoHvcGvfQ)) |
 |            | Async IO, Completed by George Miao (online) ([Slides](/assets/2026/02/11/02-compio/presentation.pdf)) |
