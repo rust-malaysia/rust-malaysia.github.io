@@ -4,7 +4,7 @@ title: Meetup
 permalink: /meetup/
 ---
 
-[Register for Rust Meetup August 2026](https://forms.gle/hUPPBHEReEGx9oQd7)
+<!-- [Register for Rust Meetup August 2026](https://forms.gle/hUPPBHEReEGx9oQd7) -->
 
 If anyone is interested to give a talk at Rust Meetup Malaysia, please fill-up
 the form <https://forms.gle/avqfwuxPkgj4BuMS8>. Thanks.
@@ -15,6 +15,8 @@ Subscribe to events at telegram channel <https://t.me/+dF46Fly4A_BjOTJl>.
 
 | Date | Info |
 |----|----|
+| 2026-08-10 | Recording [Rust Lang Meetup - August 2026]() |
+|            | Concepts in Rust by Ivan Tham ([Slides](/assets/2026/08/10/01-concepts-in-rust/slide.pdf)) |
 | 2026-05-13 | Recording [Rust Lang Meetup - May 2026](https://www.youtube.com/live/ek-MnI4kEjU?si=8FdyUqvEz46bPyM5) |
 |            | gdext: Using Rust for Games in Godot by Choko ([Slides](/assets/2026/05/13/03-rust-in-godot/rustmeetup2.pdf)) |
 |            | Use AI in Rust, without producing garbage code by Farhan Syah ([Slides](/assets/2026/05/13/04-ai-in-rust/How_to_Actually_Use_AI_in_Rust_Without_Producing_Garbage_Code_by.pdf)) |
