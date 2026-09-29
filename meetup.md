@@ -4,12 +4,10 @@ title: Meetup
 permalink: /meetup/
 ---
 
-<!-- [Register for Rust Meetup August 2026](https://forms.gle/hUPPBHEReEGx9oQd7) -->
+Subscribe to events at telegram channel <https://t.me/+dF46Fly4A_BjOTJl>.
 
 If anyone is interested to give a talk at Rust Meetup Malaysia, please fill-up
 the form <https://forms.gle/avqfwuxPkgj4BuMS8>. Thanks.
-
-Subscribe to events at telegram channel <https://t.me/+dF46Fly4A_BjOTJl>.
 
 ## Previous Meetups
 
