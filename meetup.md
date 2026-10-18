@@ -13,6 +13,9 @@ the form <https://forms.gle/avqfwuxPkgj4BuMS8>. Thanks.
 
 | Date | Info |
 |----|----|
+| 2026-10-10 | Recording [Rust Lang Meetup - October 2026](https://www.youtube.com/watch?v=kGfDuB3yUOM&list=PL85XCvVPmGQh3V0Pz-_xFm6VAUTR4aLUw&index=28) |
+|            | MotionGfx: A different paradigm for motion graphics creation by Nixon ([Slides](https://canva.link/bnva58bgol6b03q)) |
+|            | Building an open source data streamling runtime with rust and datafusion by Sek Fook ([Slides](/assets/2026/10/10/01-datafusion/slide.html)) |
 | 2026-08-10 | Recording [Rust Lang Meetup - August 2026](https://www.youtube.com/watch?v=OjvYpzh40U0&list=PL85XCvVPmGQh3V0Pz-_xFm6VAUTR4aLUw&index=27) |
 |            | Concepts in Rust by Ivan Tham ([Slides](/assets/2026/08/10/01-concepts-in-rust/slide.pdf)) |
 | 2026-05-13 | Recording [Rust Lang Meetup - May 2026](https://www.youtube.com/watch?v=ek-MnI4kEjU&list=PL85XCvVPmGQh3V0Pz-_xFm6VAUTR4aLUw&index=26) |
